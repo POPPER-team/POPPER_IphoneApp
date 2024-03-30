@@ -42,7 +42,7 @@ jobs:
       - name: Build
         env:
           scheme: ${{ 'default' }}
-          platform: ${{ 'iOS Simulator' }}
+          platform: ${{ 'Device' }}
         run: |
           device='iPhone 13'
           if [ $scheme = default ]; then scheme=$(cat default); fi
@@ -53,7 +53,7 @@ jobs:
       - name: Test
         env:
           scheme: ${{ 'default' }}
-          platform: ${{ 'iOS Simulator' }}
+          platform: ${{ 'Device' }}
         run: |
           device='iPhone 13'
           if [ $scheme = default ]; then scheme=$(cat default); fi
