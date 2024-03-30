@@ -32,17 +32,15 @@ jobs:
           device='iPhone 13'
           xcrun simctl erase "$device"
           xcrun simctl boot "$device"
-          
       #todo remove when not needed anymore
       - name: List Simulators and Xcode version
         run: |
           xcrun simctl list devices
-          xcodebuild -version
       
       - name: Build
         env:
           scheme: ${{ 'default' }}
-          platform: ${{ 'Device' }}
+          platform: ${{ 'iOS Simulator' }}
         run: |
           device='iPhone 13'
           if [ $scheme = default ]; then scheme=$(cat default); fi
@@ -53,7 +51,7 @@ jobs:
       - name: Test
         env:
           scheme: ${{ 'default' }}
-          platform: ${{ 'Device' }}
+          platform: ${{ 'iOS Simulator' }}
         run: |
           device='iPhone 13'
           if [ $scheme = default ]; then scheme=$(cat default); fi
