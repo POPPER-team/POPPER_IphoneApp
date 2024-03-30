@@ -80,4 +80,4 @@ iOSInjectionProject/
 .vs/
 
 #todo ovo je za removati jednom kad iso.yml bude u redu
-.github/workflows/iso.yml
+ios.yml
