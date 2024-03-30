@@ -35,7 +35,7 @@ jobs:
       #todo remove when not needed anymore
       - name: List Simulators and Xcode version
         run: |
-          xcrun simctl list devices
+          xcodebuild -version
       
       - name: Build
         env:
