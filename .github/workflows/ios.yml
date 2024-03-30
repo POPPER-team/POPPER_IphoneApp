@@ -2,6 +2,7 @@ name: iOS workflow
 
 on:
   push:
+    #todo change to dev when done
     branches: [ "workflows" ]
   pull_request:
     branches: [ "workflows" ]
@@ -34,6 +35,7 @@ jobs:
       - name: Boot Simulator
         run: |
           device='iPhone 13'
+          xcrun simctl erase "$device"
           xcrun simctl boot "$device"
            
       - name: Build
