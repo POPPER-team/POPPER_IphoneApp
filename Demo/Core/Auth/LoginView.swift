@@ -16,6 +16,10 @@ struct LoginView: View {
         NavigationStack {
             ZStack {
                 VStack {
+                    Image("logo-placeholder")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 300)
                     Text("POPPER")
                     .font(.largeTitle)
                     .bold()
@@ -23,14 +27,14 @@ struct LoginView: View {
                     
                     TextField("Email or username", text: $email_username)
                     .padding()
-                    .frame(width: 300, height: 50)
+                    .frame(width: 350, height: 50)
                     .background(Color.gray.opacity(0.25))
                     .cornerRadius(20)
                     .bold()
                 
                     SecureField("Password", text: $password)
                     .padding()
-                    .frame(width: 300, height: 50)
+                    .frame(width: 350, height: 50)
                     .background(Color.gray.opacity(0.25))
                     .cornerRadius(20)
                     .bold()
@@ -62,7 +66,7 @@ struct LoginView: View {
                             .navigationBarBackButtonHidden(false)
                         }.padding(.bottom, 50)
                     }.edgesIgnoringSafeArea(.bottom)
-                }.padding(.top, 250)
+                }.padding(.top, 100)
             }.navigationBarHidden(true)
         }
     }

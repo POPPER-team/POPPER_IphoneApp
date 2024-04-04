@@ -18,6 +18,10 @@ struct RegisterView: View {
         NavigationStack {
             ZStack {
                 VStack {
+                    Image("logo-placeholder")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 300)
                     Text("POPPER")
                     .font(.largeTitle)
                     .bold()
@@ -85,7 +89,7 @@ struct RegisterView: View {
                             .navigationBarBackButtonHidden(false)
                         }.padding(.bottom, 50)
                     }.edgesIgnoringSafeArea(.bottom)
-                }.padding(.top, 150)
+                }.padding(.top, 50)
             }.navigationBarHidden(true)
         }
     }
