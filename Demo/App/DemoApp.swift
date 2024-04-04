@@ -9,15 +9,20 @@ import SwiftUI
 
 @main
 struct DemoApp: App {
-    @State private var userLoggedIn = false
+    @State private var isUserLoggedIn = false
     var body: some Scene {
 
         WindowGroup {
-            if userLoggedIn {
+            if isUserLoggedIn {
                 MainTabView()
             } else {
-                LoginView()
+                LoginView(authenticateUser: authUser)
             }
         }
+        
+    }
+    
+    public func authUser() {
+        isUserLoggedIn.toggle()
     }
 }

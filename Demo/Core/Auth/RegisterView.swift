@@ -8,16 +8,13 @@
 import SwiftUI
 
 struct RegisterView: View {
+    let createUser: () -> Void
     @State var firstName = "";
     @State var lastName = "";
-    @State private var email_username = ""
+    @State private var emailOrUsername = ""
     @State private var password = ""
     @State private var showingLoginScreen = false
-    
-    func createUser() {
-        showingLoginScreen = true
-    }
-    
+        
     var body: some View {
         NavigationStack {
             ZStack {
@@ -35,7 +32,7 @@ struct RegisterView: View {
                     
                     PopperInputField(placeholder: "Last name", text: $lastName)
                     
-                    PopperInputField(placeholder: "Email or username", text: $email_username)
+                    PopperInputField(placeholder: "Email or username", text: $emailOrUsername)
                 
                     PopperSecureField(placeholder: "Password", text: $password)
                     
@@ -44,7 +41,7 @@ struct RegisterView: View {
                     HStack{
                         Text("Already have an account?")
                             .bold()
-                        NavigationLink(destination: LoginView()){
+                        NavigationLink(destination: LoginView(authenticateUser: {})){
                             Text("Login")
                                 .foregroundColor(.purple)
                                 .bold()
@@ -53,6 +50,12 @@ struct RegisterView: View {
                     VStack{
                         Spacer()
                         PopperButton(buttonText: "Register", onClick: createUser, isPresented: $showingLoginScreen)
+                            .navigationDestination(isPresented: $showingLoginScreen)
+                        {
+                            MainTabView()
+                            //setaj na true kasnije
+                            .navigationBarBackButtonHidden(true)
+                        }.padding(.bottom, 50)
                     }.edgesIgnoringSafeArea(.bottom)
                 }.padding(.top, 50)
             }.navigationBarHidden(true)
@@ -61,5 +64,5 @@ struct RegisterView: View {
 }
 
 #Preview {
-    RegisterView()
+    RegisterView(createUser: {})
 }

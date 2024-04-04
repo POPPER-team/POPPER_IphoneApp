@@ -8,13 +8,10 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var email_username = ""
+    let authenticateUser: () -> Void
+    @State private var emailOrUsername = ""
     @State private var password = ""
     @State private var showingLoginScreen = false
-    
-    func authenticateUser() {
-        showingLoginScreen = true
-    }
     
     var body: some View {
         NavigationStack {
@@ -29,14 +26,14 @@ struct LoginView: View {
                     .bold()
                     .padding()
                     
-                    PopperInputField(placeholder: "Email or username", text: $email_username)
+                    PopperInputField(placeholder: "Email or username", text: $emailOrUsername)
                 
                     PopperSecureField(placeholder: "Password", text: $password)
                     
                     HStack{
                         Text("Don't have an account?")
                             .bold()
-                        NavigationLink(destination: RegisterView()){
+                        NavigationLink(destination: RegisterView(createUser: {})){
                             Text("Register")
                                 .foregroundColor(.purple)
                                 .bold()
@@ -45,6 +42,12 @@ struct LoginView: View {
                     VStack{
                         Spacer()
                         PopperButton(buttonText: "Login", onClick: authenticateUser, isPresented: $showingLoginScreen)
+                            .navigationDestination(isPresented: $showingLoginScreen)
+                        {
+                            MainTabView()
+                            //setaj na true kasnije
+                            .navigationBarBackButtonHidden(true)
+                        }.padding(.bottom, 50)
                     }.edgesIgnoringSafeArea(.bottom)
                 }.padding(.top, 100)
             }.navigationBarHidden(true)
@@ -53,5 +56,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
+    LoginView(authenticateUser: {})
 }

@@ -28,12 +28,6 @@ struct PopperButton: View {
         .background(Color.gray.opacity(0.25))
         .cornerRadius(20)
         .bold()
-        .navigationDestination(isPresented: $isPresented)
-        {
-            MainTabView()
-            //setaj na true kasnije
-                .navigationBarBackButtonHidden(true)
-        }.padding(.bottom, 50)
     }
 }
 
