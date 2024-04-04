@@ -9,12 +9,15 @@ import SwiftUI
 
 @main
 struct DemoApp: App {
+    @State private var userLoggedIn = false
     var body: some Scene {
+
         WindowGroup {
-            LoginView()
-        }
-        WindowGroup {
-            MainTabView()
+            if userLoggedIn {
+                MainTabView()
+            } else {
+                LoginView()
+            }
         }
     }
 }

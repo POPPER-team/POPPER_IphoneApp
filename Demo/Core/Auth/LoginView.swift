@@ -12,6 +12,10 @@ struct LoginView: View {
     @State private var password = ""
     @State private var showingLoginScreen = false
     
+    func authenticateUser() {
+        showingLoginScreen = true
+    }
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -25,19 +29,9 @@ struct LoginView: View {
                     .bold()
                     .padding()
                     
-                    TextField("Email or username", text: $email_username)
-                    .padding()
-                    .frame(width: 350, height: 50)
-                    .background(Color.gray.opacity(0.25))
-                    .cornerRadius(20)
-                    .bold()
+                    PopperInputField(placeholder: "Email or username", text: $email_username)
                 
-                    SecureField("Password", text: $password)
-                    .padding()
-                    .frame(width: 350, height: 50)
-                    .background(Color.gray.opacity(0.25))
-                    .cornerRadius(20)
-                    .bold()
+                    PopperSecureField(placeholder: "Password", text: $password)
                     
                     HStack{
                         Text("Don't have an account?")
@@ -50,29 +44,11 @@ struct LoginView: View {
                     }
                     VStack{
                         Spacer()
-                        Button("Login")
-                        {
-                        authenticateUser(email_username: email_username, password: password)
-                        }
-                        .foregroundColor(.black)
-                        .frame(width: 300, height: 50)
-                        .background(Color.gray.opacity(0.25))
-                        .cornerRadius(20)
-                        .bold()
-                        .navigationDestination(isPresented:$showingLoginScreen)
-                        {
-                            MainTabView()
-                            //setaj na true kasnije
-                            .navigationBarBackButtonHidden(false)
-                        }.padding(.bottom, 50)
+                        PopperButton(buttonText: "Login", onClick: authenticateUser, isPresented: $showingLoginScreen)
                     }.edgesIgnoringSafeArea(.bottom)
                 }.padding(.top, 100)
             }.navigationBarHidden(true)
         }
-    }
-    
-    func authenticateUser(email_username: String, password: String) {
-        showingLoginScreen = true
     }
 }
 

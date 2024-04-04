@@ -14,53 +14,32 @@ struct RegisterView: View {
     @State private var password = ""
     @State private var showingLoginScreen = false
     
+    func createUser() {
+        showingLoginScreen = true
+    }
+    
     var body: some View {
         NavigationStack {
             ZStack {
                 VStack {
                     Image("logo-placeholder")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 300)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 300)
                     Text("POPPER")
                     .font(.largeTitle)
                     .bold()
                     .padding()
                     
-                    TextField("First name", text: $firstName)
-                    .padding()
-                    .frame(width: 350, height: 50)
-                    .background(Color.gray.opacity(0.25))
-                    .cornerRadius(20)
-                    .bold()
+                    PopperInputField(placeholder: "First name", text: $firstName)
                     
-                    TextField("Last name", text: $lastName)
-                    .padding()
-                    .frame(width: 350, height: 50)
-                    .background(Color.gray.opacity(0.25))
-                    .cornerRadius(20)
-                    .bold()
+                    PopperInputField(placeholder: "Last name", text: $lastName)
                     
-                    TextField("Email or username", text: $email_username)
-                    .padding()
-                    .frame(width: 350, height: 50)
-                    .background(Color.gray.opacity(0.25))
-                    .cornerRadius(20)
-                    .bold()
+                    PopperInputField(placeholder: "Email or username", text: $email_username)
                 
-                    SecureField("Password", text: $password)
-                    .padding()
-                    .frame(width: 350, height: 50)
-                    .background(Color.gray.opacity(0.25))
-                    .cornerRadius(20)
-                    .bold()
+                    PopperSecureField(placeholder: "Password", text: $password)
                     
-                    SecureField("Repeat password", text: $password)
-                    .padding()
-                    .frame(width: 350, height: 50)
-                    .background(Color.gray.opacity(0.25))
-                    .cornerRadius(20)
-                    .bold()
+                    PopperSecureField(placeholder: "Repeat password", text: $password)
                     
                     HStack{
                         Text("Already have an account?")
@@ -73,29 +52,11 @@ struct RegisterView: View {
                     }
                     VStack{
                         Spacer()
-                        Button("Register")
-                        {
-                        createUser(email_username: email_username, password: password)
-                        }
-                        .foregroundColor(.black)
-                        .frame(width: 350, height: 50)
-                        .background(Color.gray.opacity(0.25))
-                        .cornerRadius(20)
-                        .bold()
-                        .navigationDestination(isPresented:$showingLoginScreen)
-                        {
-                            MainTabView()
-                            //setaj na true kasnije
-                            .navigationBarBackButtonHidden(false)
-                        }.padding(.bottom, 50)
+                        PopperButton(buttonText: "Register", onClick: createUser, isPresented: $showingLoginScreen)
                     }.edgesIgnoringSafeArea(.bottom)
                 }.padding(.top, 50)
             }.navigationBarHidden(true)
         }
-    }
-    
-    func createUser(email_username: String, password: String) {
-        showingLoginScreen = true
     }
 }
 
