@@ -12,6 +12,7 @@ struct LoginView: View {
     @State private var emailOrUsername = ""
     @State private var password = ""
     @State private var showingLoginScreen = false
+      
     
     var body: some View {
         NavigationStack {
@@ -33,7 +34,7 @@ struct LoginView: View {
                     HStack{
                         Text("Don't have an account?")
                             .bold()
-                        NavigationLink(destination: RegisterView(createUser: {})){
+                        NavigationLink(destination: RegisterView(authenticateUser: authenticateUser)){
                             Text("Register")
                                 .foregroundColor(.purple)
                                 .bold()
@@ -42,12 +43,7 @@ struct LoginView: View {
                     VStack{
                         Spacer()
                         PopperButton(buttonText: "Login", onClick: authenticateUser, isPresented: $showingLoginScreen)
-                            .navigationDestination(isPresented: $showingLoginScreen)
-                        {
-                            MainTabView()
-                            //setaj na true kasnije
-                            .navigationBarBackButtonHidden(true)
-                        }.padding(.bottom, 50)
+                            .padding(.bottom, 50)
                     }.edgesIgnoringSafeArea(.bottom)
                 }.padding(.top, 100)
             }.navigationBarHidden(true)

@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct RegisterView: View {
-    let createUser: () -> Void
+    let authenticateUser: () -> Void
     @State var firstName = "";
     @State var lastName = "";
     @State private var emailOrUsername = ""
     @State private var password = ""
     @State private var showingLoginScreen = false
+    
         
     var body: some View {
         NavigationStack {
@@ -41,7 +42,7 @@ struct RegisterView: View {
                     HStack{
                         Text("Already have an account?")
                             .bold()
-                        NavigationLink(destination: LoginView(authenticateUser: {})){
+                        NavigationLink(destination: LoginView(authenticateUser: authenticateUser)){
                             Text("Login")
                                 .foregroundColor(.purple)
                                 .bold()
@@ -49,13 +50,8 @@ struct RegisterView: View {
                     }
                     VStack{
                         Spacer()
-                        PopperButton(buttonText: "Register", onClick: createUser, isPresented: $showingLoginScreen)
-                            .navigationDestination(isPresented: $showingLoginScreen)
-                        {
-                            MainTabView()
-                            //setaj na true kasnije
-                            .navigationBarBackButtonHidden(true)
-                        }.padding(.bottom, 50)
+                        PopperButton(buttonText: "Register", onClick: authenticateUser, isPresented: $showingLoginScreen)
+                            .padding(.bottom, 50)
                     }.edgesIgnoringSafeArea(.bottom)
                 }.padding(.top, 50)
             }.navigationBarHidden(true)
@@ -64,5 +60,5 @@ struct RegisterView: View {
 }
 
 #Preview {
-    RegisterView(createUser: {})
+    RegisterView(authenticateUser: {})
 }

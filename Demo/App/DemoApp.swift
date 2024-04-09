@@ -25,4 +25,5 @@ struct DemoApp: App {
     public func authUser() {
         isUserLoggedIn.toggle()
     }
+    
 }
