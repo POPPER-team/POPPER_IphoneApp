@@ -12,7 +12,7 @@
 		3038E40F2BAC9EC9004A9720 /* CustomVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038E40E2BAC9EC9004A9720 /* CustomVideoPlayer.swift */; };
 		303E81E72BBD9C6C00ABFE88 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E81E62BBD9C6C00ABFE88 /* LoginView.swift */; };
 		303E81E92BBDA79100ABFE88 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303E81E82BBDA79100ABFE88 /* RegisterView.swift */; };
-		304166082BAB67F300AC1081 /* DemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304166072BAB67F300AC1081 /* DemoApp.swift */; };
+		304166082BAB67F300AC1081 /* PopperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304166072BAB67F300AC1081 /* PopperApp.swift */; };
 		3041660C2BAB67F400AC1081 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3041660B2BAB67F400AC1081 /* Assets.xcassets */; };
 		3041660F2BAB67F400AC1081 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3041660E2BAB67F400AC1081 /* Preview Assets.xcassets */; };
 		3041662C2BAB69D900AC1081 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3041662B2BAB69D900AC1081 /* MainTabView.swift */; };
@@ -38,7 +38,7 @@
 		303E81E62BBD9C6C00ABFE88 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		303E81E82BBDA79100ABFE88 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		304166042BAB67F300AC1081 /* POPPER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = POPPER.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		304166072BAB67F300AC1081 /* DemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApp.swift; sourceTree = "<group>"; };
+		304166072BAB67F300AC1081 /* PopperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopperApp.swift; sourceTree = "<group>"; };
 		3041660B2BAB67F400AC1081 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3041660E2BAB67F400AC1081 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3041662B2BAB69D900AC1081 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 		3041661A2BAB683F00AC1081 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				304166072BAB67F300AC1081 /* DemoApp.swift */,
+				304166072BAB67F300AC1081 /* PopperApp.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -369,7 +369,7 @@
 				3098F09C2BBECE6F004D4D07 /* PopperSecureField.swift in Sources */,
 				3038E4082BAC9475004A9720 /* Post.swift in Sources */,
 				303E81E92BBDA79100ABFE88 /* RegisterView.swift in Sources */,
-				304166082BAB67F300AC1081 /* DemoApp.swift in Sources */,
+				304166082BAB67F300AC1081 /* PopperApp.swift in Sources */,
 				30EBB0FB2BAC6642009A9586 /* ExploreView.swift in Sources */,
 				3098F09A2BBECD8F004D4D07 /* PopperInputField.swift in Sources */,
 				3041662C2BAB69D900AC1081 /* MainTabView.swift in Sources */,
