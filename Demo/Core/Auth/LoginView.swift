@@ -11,7 +11,6 @@ struct LoginView: View {
     let authenticateUser: () -> Void
     @State private var emailOrUsername = ""
     @State private var password = ""
-    @State private var showingLoginScreen = false
       
     
     var body: some View {
@@ -42,7 +41,7 @@ struct LoginView: View {
                     }
                     VStack{
                         Spacer()
-                        PopperButton(buttonText: "Login", onClick: authenticateUser, isPresented: $showingLoginScreen)
+                        PopperButton(buttonText: "Login", onClick: authenticateUser)
                             .padding(.bottom, 50)
                     }.edgesIgnoringSafeArea(.bottom)
                 }.padding(.top, 100)

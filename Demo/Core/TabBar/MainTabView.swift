@@ -1,14 +1,8 @@
-//
-//  MainTabView.swift
-//  Demo
-//
-//  Created by Matija Lukanić on 20.03.2024..
-//
-
 import SwiftUI
 
 struct MainTabView: View {
     @State private var selectedTab = 0
+    
     var body: some View {
         TabView(selection: $selectedTab){
             FeedView()
@@ -19,8 +13,9 @@ struct MainTabView: View {
                         Text("Home")
                     }
                 }
-                .onAppear {selectedTab = 0}
                 .tag(0)
+                .animation(.bouncy)
+            
             ExploreView()
                 .tabItem {
                     VStack {
@@ -29,31 +24,38 @@ struct MainTabView: View {
                         Text("Friends")
                     }
                 }
-                .onAppear {selectedTab = 1}
                 .tag(1)
+            
             Text("Upload Post")
                 .tabItem { Image(systemName: "plus") }
+                .tag(2)
+            
             NotificationsView()
                 .tabItem {
-                    Image(systemName: selectedTab == 3 ? "heart.fill" : "heart")
-                        .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
-                    Text("Home")
+                    VStack {
+                        Image(systemName: selectedTab == 3 ? "heart.fill" : "heart")
+                            .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
+                        Text("Home")
+                    }
                 }
-                .onAppear {selectedTab = 3}
                 .tag(3)
+            
             CurrentUserProfileView()
                 .tabItem {
+                    VStack {
                         Image(systemName: selectedTab == 4 ? "person.fill" : "person")
                             .environment(\.symbolVariants, selectedTab == 4 ? .fill : .none)
                         Text("Home")
                     }
-                .onAppear {selectedTab = 4}
+                }
                 .tag(4)
         }
         .tint(.black)
     }
 }
 
-#Preview {
-    MainTabView()
+struct MainTabView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainTabView()
+    }
 }
