@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct DemoApp: App {
+struct PopperApp: App {
     @State private var isUserLoggedIn = false
     var body: some Scene {
 
