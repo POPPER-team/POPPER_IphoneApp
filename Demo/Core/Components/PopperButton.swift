@@ -10,12 +10,10 @@ import SwiftUI
 struct PopperButton: View {
     let buttonText: String
     let onClick: () -> Void
-    @Binding var isPresented: Bool
     
-    init(buttonText: String, onClick: @escaping () -> Void, isPresented: Binding<Bool>) {
+    init(buttonText: String, onClick: @escaping () -> Void) {
         self.buttonText = buttonText
         self.onClick = onClick
-        self._isPresented = isPresented
     }
     
     var body: some View {

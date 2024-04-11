@@ -13,7 +13,6 @@ struct RegisterView: View {
     @State var lastName = "";
     @State private var emailOrUsername = ""
     @State private var password = ""
-    @State private var showingLoginScreen = false
     
         
     var body: some View {
@@ -50,7 +49,7 @@ struct RegisterView: View {
                     }
                     VStack{
                         Spacer()
-                        PopperButton(buttonText: "Register", onClick: authenticateUser, isPresented: $showingLoginScreen)
+                        PopperButton(buttonText: "Register", onClick: authenticateUser)
                             .padding(.bottom, 50)
                     }.edgesIgnoringSafeArea(.bottom)
                 }.padding(.top, 50)
