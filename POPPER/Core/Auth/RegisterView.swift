@@ -49,7 +49,7 @@ struct RegisterView: View {
                     }
                     VStack{
                         Spacer()
-                        PopperLoadingButton(buttonText: "Login", onClick: {
+                        PopperLoadingButton(buttonText: "Register", onClick: {
                             sleep(2);
                             authenticateUser()
                         })
