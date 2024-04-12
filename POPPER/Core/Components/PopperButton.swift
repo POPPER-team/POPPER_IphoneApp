@@ -11,7 +11,7 @@ struct PopperButton: View {
     let buttonText: String
     let onClick: () -> Void
     
-    init(buttonText: String, onClick: @escaping () -> Void) {
+    init(buttonText: String, action onClick: @escaping () -> Void) {
         self.buttonText = buttonText
         self.onClick = onClick
     }
@@ -27,5 +27,9 @@ struct PopperButton: View {
         .cornerRadius(20)
         .bold()
     }
+}
+
+#Preview {
+    PopperButton(buttonText: "Login", action: {})
 }
 
