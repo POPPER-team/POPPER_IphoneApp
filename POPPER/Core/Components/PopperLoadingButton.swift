@@ -16,7 +16,7 @@ struct PopperLoadingButton: View {
     let onClick: () -> Void
 
     private var style: LoadingButtonStyle {
-        return .init(width: 350, height: 50, cornerRadius: 20, backgroundColor: Color.gray.opacity(0.25), loadingColor: .blue, strokeWidth: 1, strokeColor: .white)
+        return .init(width: 350, height: 50, cornerRadius: 20, backgroundColor: Color.gray.opacity(0.25), loadingColor: Color.gray.opacity(0.55), strokeWidth: 1, strokeColor: .black)
        }
     
     init(buttonText: String, onClick: @escaping () -> Void) {
@@ -37,13 +37,13 @@ struct PopperLoadingButton: View {
                     }
                 }
                 
-            }, isLoading: $isLoading) {
+            }, isLoading: $isLoading, style: style) {
                 Text(buttonText)
             }
             .padding(/*@START_MENU_TOKEN@*/EdgeInsets()/*@END_MENU_TOKEN@*/)
             .cornerRadius(20)
             .font(.system(size: 16, weight: .bold))
-            .foregroundColor(.white)
+            .foregroundColor(.black)
             .disabled(isLoading)
         }
     }
@@ -51,11 +51,9 @@ struct PopperLoadingButton: View {
 
 #Preview {
     PopperLoadingButton(buttonText: "Login", onClick: {
-        
         for i in 0...3{
             sleep(1);
             print(i)
         }
-    }
-    )
+    })
 }

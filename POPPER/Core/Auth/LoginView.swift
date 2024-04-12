@@ -41,8 +41,11 @@ struct LoginView: View {
                     }
                     VStack{
                         Spacer()
-                        PopperButton(buttonText: "Login", onClick: authenticateUser)
-                            .padding(.bottom, 50)
+                        PopperLoadingButton(buttonText: "Login", onClick: {
+                            sleep(2);
+                            authenticateUser()
+                        })
+                        .padding(.bottom, 50)
                     }.edgesIgnoringSafeArea(.bottom)
                 }.padding(.top, 100)
             }.navigationBarHidden(true)
