@@ -29,7 +29,7 @@ struct PopperLoadingButton: View {
             LoadingButton(action: {
                 isFocus = false
                 self.isLoading = true
-                //DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: DispatchWorkItem)
+                //TODO: Test with real Authenticate function, not sure if it can return data.
                 DispatchQueue.global().async {
                     onClick()
                     DispatchQueue.main.async{

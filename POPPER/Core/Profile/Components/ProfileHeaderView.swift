@@ -50,4 +50,3 @@ struct ProfileHeaderView: View {
     ProfileHeaderView()
 }
 
-

@@ -11,16 +11,13 @@ struct PopperButton: View {
     let buttonText: String
     let onClick: () -> Void
     
-    init(buttonText: String, action onClick: @escaping () -> Void) {
+    init(buttonText: String, onClick: @escaping () -> Void) {
         self.buttonText = buttonText
         self.onClick = onClick
     }
     
     var body: some View {
-        Button(buttonText)
-        {
-            onClick()
-        }
+        Button(buttonText, action: onClick)
         .foregroundColor(.black)
         .frame(width: 350, height: 50)
         .background(Color.gray.opacity(0.25))
@@ -30,6 +27,6 @@ struct PopperButton: View {
 }
 
 #Preview {
-    PopperButton(buttonText: "Login", action: {})
+    PopperButton(buttonText: "Login", onClick: {})
 }
 
