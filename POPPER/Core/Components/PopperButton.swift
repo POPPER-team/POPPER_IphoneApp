@@ -17,15 +17,16 @@ struct PopperButton: View {
     }
     
     var body: some View {
-        Button(buttonText)
-        {
-            onClick()
-        }
+        Button(buttonText, action: onClick)
         .foregroundColor(.black)
         .frame(width: 350, height: 50)
         .background(Color.gray.opacity(0.25))
         .cornerRadius(20)
         .bold()
     }
+}
+
+#Preview {
+    PopperButton(buttonText: "Login", onClick: {})
 }
 

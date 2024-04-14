@@ -49,8 +49,11 @@ struct RegisterView: View {
                     }
                     VStack{
                         Spacer()
-                        PopperButton(buttonText: "Register", onClick: authenticateUser)
-                            .padding(.bottom, 50)
+                        PopperLoadingButton(buttonText: "Register", onClick: {
+                            sleep(2);
+                            authenticateUser()
+                        })
+                        .padding(.bottom, 50)
                     }.edgesIgnoringSafeArea(.bottom)
                 }.padding(.top, 50)
             }.navigationBarHidden(true)
