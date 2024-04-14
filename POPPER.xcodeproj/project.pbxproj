@@ -19,6 +19,7 @@
 		3041660F2BAB67F400AC1081 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3041660E2BAB67F400AC1081 /* Preview Assets.xcassets */; };
 		3041662C2BAB69D900AC1081 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3041662B2BAB69D900AC1081 /* MainTabView.swift */; };
 		3043B8ED2BAB716500F30A40 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3043B8EC2BAB716500F30A40 /* FeedCell.swift */; };
+		307E653B2BCC306D00A367E9 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307E653A2BCC306D00A367E9 /* EditProfileView.swift */; };
 		3098F09A2BBECD8F004D4D07 /* PopperInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098F0992BBECD8F004D4D07 /* PopperInputField.swift */; };
 		3098F09C2BBECE6F004D4D07 /* PopperSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098F09B2BBECE6F004D4D07 /* PopperSecureField.swift */; };
 		3098F09E2BBED206004D4D07 /* PopperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098F09D2BBED206004D4D07 /* PopperButton.swift */; };
@@ -46,6 +47,7 @@
 		3041660E2BAB67F400AC1081 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3041662B2BAB69D900AC1081 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		3043B8EC2BAB716500F30A40 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		307E653A2BCC306D00A367E9 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditProfileView.swift; path = POPPER/Core/Profile/Components/EditProfileView.swift; sourceTree = SOURCE_ROOT; };
 		3098F0992BBECD8F004D4D07 /* PopperInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopperInputField.swift; sourceTree = "<group>"; };
 		3098F09B2BBECE6F004D4D07 /* PopperSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopperSecureField.swift; sourceTree = "<group>"; };
 		3098F09D2BBED206004D4D07 /* PopperButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopperButton.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				30EBB1042BAC6DA2009A9586 /* ProfileHeaderView.swift */,
+				307E653A2BCC306D00A367E9 /* EditProfileView.swift */,
 				30EBB1062BAC6DB2009A9586 /* PostGridView.swift */,
 				30EBB10A2BAC7107009A9586 /* UserStatView.swift */,
 			);
@@ -384,6 +387,7 @@
 				302DDADA2BC866D70050AF2A /* PopperLoadingButton.swift in Sources */,
 				30EBB0FB2BAC6642009A9586 /* ExploreView.swift in Sources */,
 				3098F09A2BBECD8F004D4D07 /* PopperInputField.swift in Sources */,
+				307E653B2BCC306D00A367E9 /* EditProfileView.swift in Sources */,
 				3041662C2BAB69D900AC1081 /* MainTabView.swift in Sources */,
 				30EBB1072BAC6DB3009A9586 /* PostGridView.swift in Sources */,
 				30EBB1032BAC6D33009A9586 /* CurrentUserProfileView.swift in Sources */,
