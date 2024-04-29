@@ -22,6 +22,15 @@
 		3098F09A2BBECD8F004D4D07 /* PopperInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098F0992BBECD8F004D4D07 /* PopperInputField.swift */; };
 		3098F09C2BBECE6F004D4D07 /* PopperSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098F09B2BBECE6F004D4D07 /* PopperSecureField.swift */; };
 		3098F09E2BBED206004D4D07 /* PopperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098F09D2BBED206004D4D07 /* PopperButton.swift */; };
+		30A53B772BDFBAE200C32D95 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A53B762BDFBAE200C32D95 /* AuthenticationService.swift */; };
+		30A53B7C2BDFBEBB00C32D95 /* FileUploadDtos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A53B7B2BDFBEBB00C32D95 /* FileUploadDtos.swift */; };
+		30A53B7E2BDFBF0000C32D95 /* NewUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A53B7D2BDFBF0000C32D95 /* NewUserDto.swift */; };
+		30A53B802BDFBF2B00C32D95 /* TokensDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A53B7F2BDFBF2B00C32D95 /* TokensDto.swift */; };
+		30A53B822BDFBF4B00C32D95 /* UserDetailsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A53B812BDFBF4B00C32D95 /* UserDetailsDto.swift */; };
+		30A53B842BDFBF6700C32D95 /* UserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A53B832BDFBF6700C32D95 /* UserDto.swift */; };
+		30A53B862BDFBF8D00C32D95 /* UserLoginDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A53B852BDFBF8D00C32D95 /* UserLoginDto.swift */; };
+		30A53B882BDFC0C900C32D95 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A53B872BDFC0C900C32D95 /* User.swift */; };
+		30A53B8A2BDFC0D500C32D95 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A53B892BDFC0D500C32D95 /* UserDetails.swift */; };
 		30EBB0FB2BAC6642009A9586 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EBB0FA2BAC6642009A9586 /* ExploreView.swift */; };
 		30EBB0FD2BAC665E009A9586 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EBB0FC2BAC665E009A9586 /* UserCell.swift */; };
 		30EBB0FF2BAC6A61009A9586 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EBB0FE2BAC6A61009A9586 /* NotificationsView.swift */; };
@@ -49,6 +58,15 @@
 		3098F0992BBECD8F004D4D07 /* PopperInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopperInputField.swift; sourceTree = "<group>"; };
 		3098F09B2BBECE6F004D4D07 /* PopperSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopperSecureField.swift; sourceTree = "<group>"; };
 		3098F09D2BBED206004D4D07 /* PopperButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopperButton.swift; sourceTree = "<group>"; };
+		30A53B762BDFBAE200C32D95 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthenticationService.swift; path = POPPER/Core/Components/AuthenticationService.swift; sourceTree = SOURCE_ROOT; };
+		30A53B7B2BDFBEBB00C32D95 /* FileUploadDtos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FileUploadDtos.swift; path = POPPER/Dtos/FileUploadDtos.swift; sourceTree = SOURCE_ROOT; };
+		30A53B7D2BDFBF0000C32D95 /* NewUserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewUserDto.swift; path = POPPER/Dtos/NewUserDto.swift; sourceTree = SOURCE_ROOT; };
+		30A53B7F2BDFBF2B00C32D95 /* TokensDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TokensDto.swift; path = POPPER/Dtos/TokensDto.swift; sourceTree = SOURCE_ROOT; };
+		30A53B812BDFBF4B00C32D95 /* UserDetailsDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDetailsDto.swift; path = POPPER/Dtos/UserDetailsDto.swift; sourceTree = SOURCE_ROOT; };
+		30A53B832BDFBF6700C32D95 /* UserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDto.swift; path = POPPER/Dtos/UserDto.swift; sourceTree = SOURCE_ROOT; };
+		30A53B852BDFBF8D00C32D95 /* UserLoginDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserLoginDto.swift; path = POPPER/Dtos/UserLoginDto.swift; sourceTree = SOURCE_ROOT; };
+		30A53B872BDFC0C900C32D95 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = POPPER/Model/User.swift; sourceTree = SOURCE_ROOT; };
+		30A53B892BDFC0D500C32D95 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDetails.swift; path = POPPER/Model/UserDetails.swift; sourceTree = SOURCE_ROOT; };
 		30EBB0FA2BAC6642009A9586 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		30EBB0FC2BAC665E009A9586 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		30EBB0FE2BAC6A61009A9586 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
@@ -115,6 +133,7 @@
 		304166062BAB67F300AC1081 /* Popper */ = {
 			isa = PBXGroup;
 			children = (
+				30A53B7A2BDFBE6400C32D95 /* Dtos */,
 				304166202BAB693700AC1081 /* Utils */,
 				3041661F2BAB693100AC1081 /* Services */,
 				3041661E2BAB691700AC1081 /* Model */,
@@ -171,6 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				3038E4072BAC9475004A9720 /* Post.swift */,
+				30A53B872BDFC0C900C32D95 /* User.swift */,
+				30A53B892BDFC0D500C32D95 /* UserDetails.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,6 +199,7 @@
 		3041661F2BAB693100AC1081 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				30A53B762BDFBAE200C32D95 /* AuthenticationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -277,6 +299,19 @@
 			path = UploadMedia;
 			sourceTree = "<group>";
 		};
+		30A53B7A2BDFBE6400C32D95 /* Dtos */ = {
+			isa = PBXGroup;
+			children = (
+				30A53B7B2BDFBEBB00C32D95 /* FileUploadDtos.swift */,
+				30A53B7D2BDFBF0000C32D95 /* NewUserDto.swift */,
+				30A53B7F2BDFBF2B00C32D95 /* TokensDto.swift */,
+				30A53B812BDFBF4B00C32D95 /* UserDetailsDto.swift */,
+				30A53B832BDFBF6700C32D95 /* UserDto.swift */,
+				30A53B852BDFBF8D00C32D95 /* UserLoginDto.swift */,
+			);
+			path = Dtos;
+			sourceTree = "<group>";
+		};
 		30EBB1082BAC70BD009A9586 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,24 +408,33 @@
 				30F844052BAB6F2900F4D4CC /* FeedView.swift in Sources */,
 				3038E40F2BAC9EC9004A9720 /* CustomVideoPlayer.swift in Sources */,
 				30EBB1012BAC6A6D009A9586 /* NotificationCell.swift in Sources */,
+				30A53B7E2BDFBF0000C32D95 /* NewUserDto.swift in Sources */,
 				30EBB1052BAC6DA2009A9586 /* ProfileHeaderView.swift in Sources */,
 				30EBB10B2BAC7107009A9586 /* UserStatView.swift in Sources */,
 				3043B8ED2BAB716500F30A40 /* FeedCell.swift in Sources */,
+				30A53B822BDFBF4B00C32D95 /* UserDetailsDto.swift in Sources */,
+				30A53B882BDFC0C900C32D95 /* User.swift in Sources */,
 				3038E40D2BAC9558004A9720 /* FeedViewModel.swift in Sources */,
 				3098F09C2BBECE6F004D4D07 /* PopperSecureField.swift in Sources */,
 				3038E4082BAC9475004A9720 /* Post.swift in Sources */,
 				303E81E92BBDA79100ABFE88 /* RegisterView.swift in Sources */,
+				30A53B862BDFBF8D00C32D95 /* UserLoginDto.swift in Sources */,
 				304166082BAB67F300AC1081 /* PopperApp.swift in Sources */,
 				302DDADA2BC866D70050AF2A /* PopperLoadingButton.swift in Sources */,
 				30EBB0FB2BAC6642009A9586 /* ExploreView.swift in Sources */,
 				3098F09A2BBECD8F004D4D07 /* PopperInputField.swift in Sources */,
 				3041662C2BAB69D900AC1081 /* MainTabView.swift in Sources */,
+				30A53B772BDFBAE200C32D95 /* AuthenticationService.swift in Sources */,
 				30EBB1072BAC6DB3009A9586 /* PostGridView.swift in Sources */,
 				30EBB1032BAC6D33009A9586 /* CurrentUserProfileView.swift in Sources */,
+				30A53B842BDFBF6700C32D95 /* UserDto.swift in Sources */,
+				30A53B802BDFBF2B00C32D95 /* TokensDto.swift in Sources */,
 				30EBB0FD2BAC665E009A9586 /* UserCell.swift in Sources */,
 				303E81E72BBD9C6C00ABFE88 /* LoginView.swift in Sources */,
 				30EBB0FF2BAC6A61009A9586 /* NotificationsView.swift in Sources */,
 				3098F09E2BBED206004D4D07 /* PopperButton.swift in Sources */,
+				30A53B7C2BDFBEBB00C32D95 /* FileUploadDtos.swift in Sources */,
+				30A53B8A2BDFC0D500C32D95 /* UserDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

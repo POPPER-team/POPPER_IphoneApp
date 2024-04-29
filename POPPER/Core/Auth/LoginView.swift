@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     let authenticateUser: () -> Void
-    @State private var emailOrUsername = ""
+    @State private var username = ""
     @State private var password = ""
       
     
@@ -26,7 +26,7 @@ struct LoginView: View {
                     .bold()
                     .padding()
                     
-                    PopperInputField(placeholder: "Email or username", text: $emailOrUsername)
+                    PopperInputField(placeholder: "Username", text: $username)
                 
                     PopperSecureField(placeholder: "Password", text: $password)
                     

@@ -11,7 +11,7 @@ struct RegisterView: View {
     let authenticateUser: () -> Void
     @State var firstName = "";
     @State var lastName = "";
-    @State private var emailOrUsername = ""
+    @State private var username = ""
     @State private var password = ""
     
         
@@ -32,7 +32,7 @@ struct RegisterView: View {
                     
                     PopperInputField(placeholder: "Last name", text: $lastName)
                     
-                    PopperInputField(placeholder: "Email or username", text: $emailOrUsername)
+                    PopperInputField(placeholder: "Username", text: $username)
                 
                     PopperSecureField(placeholder: "Password", text: $password)
                     
