@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TokensDto {
+struct TokensDto : Decodable{
     var jwtToken: String
     var refreshToken: String
 }

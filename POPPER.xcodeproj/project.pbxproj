@@ -31,6 +31,8 @@
 		30A53B862BDFBF8D00C32D95 /* UserLoginDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A53B852BDFBF8D00C32D95 /* UserLoginDto.swift */; };
 		30A53B882BDFC0C900C32D95 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A53B872BDFC0C900C32D95 /* User.swift */; };
 		30A53B8A2BDFC0D500C32D95 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A53B892BDFC0D500C32D95 /* UserDetails.swift */; };
+		30A53B8D2BDFD36000C32D95 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A53B8C2BDFD36000C32D95 /* Connection.swift */; };
+		30A53B8F2BDFDCBB00C32D95 /* UserAuthenticationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A53B8E2BDFDCBB00C32D95 /* UserAuthenticationAPI.swift */; };
 		30EBB0FB2BAC6642009A9586 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EBB0FA2BAC6642009A9586 /* ExploreView.swift */; };
 		30EBB0FD2BAC665E009A9586 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EBB0FC2BAC665E009A9586 /* UserCell.swift */; };
 		30EBB0FF2BAC6A61009A9586 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EBB0FE2BAC6A61009A9586 /* NotificationsView.swift */; };
@@ -67,6 +69,8 @@
 		30A53B852BDFBF8D00C32D95 /* UserLoginDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserLoginDto.swift; path = POPPER/Dtos/UserLoginDto.swift; sourceTree = SOURCE_ROOT; };
 		30A53B872BDFC0C900C32D95 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = POPPER/Model/User.swift; sourceTree = SOURCE_ROOT; };
 		30A53B892BDFC0D500C32D95 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDetails.swift; path = POPPER/Model/UserDetails.swift; sourceTree = SOURCE_ROOT; };
+		30A53B8C2BDFD36000C32D95 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = POPPER/API/Connection.swift; sourceTree = SOURCE_ROOT; };
+		30A53B8E2BDFDCBB00C32D95 /* UserAuthenticationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserAuthenticationAPI.swift; path = POPPER/API/UserAuthenticationAPI.swift; sourceTree = SOURCE_ROOT; };
 		30EBB0FA2BAC6642009A9586 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		30EBB0FC2BAC665E009A9586 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		30EBB0FE2BAC6A61009A9586 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 		304166062BAB67F300AC1081 /* Popper */ = {
 			isa = PBXGroup;
 			children = (
+				30A53B8B2BDFD28500C32D95 /* API */,
 				30A53B7A2BDFBE6400C32D95 /* Dtos */,
 				304166202BAB693700AC1081 /* Utils */,
 				3041661F2BAB693100AC1081 /* Services */,
@@ -312,6 +317,15 @@
 			path = Dtos;
 			sourceTree = "<group>";
 		};
+		30A53B8B2BDFD28500C32D95 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				30A53B8C2BDFD36000C32D95 /* Connection.swift */,
+				30A53B8E2BDFDCBB00C32D95 /* UserAuthenticationAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		30EBB1082BAC70BD009A9586 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +423,7 @@
 				3038E40F2BAC9EC9004A9720 /* CustomVideoPlayer.swift in Sources */,
 				30EBB1012BAC6A6D009A9586 /* NotificationCell.swift in Sources */,
 				30A53B7E2BDFBF0000C32D95 /* NewUserDto.swift in Sources */,
+				30A53B8D2BDFD36000C32D95 /* Connection.swift in Sources */,
 				30EBB1052BAC6DA2009A9586 /* ProfileHeaderView.swift in Sources */,
 				30EBB10B2BAC7107009A9586 /* UserStatView.swift in Sources */,
 				3043B8ED2BAB716500F30A40 /* FeedCell.swift in Sources */,
@@ -419,6 +434,7 @@
 				3038E4082BAC9475004A9720 /* Post.swift in Sources */,
 				303E81E92BBDA79100ABFE88 /* RegisterView.swift in Sources */,
 				30A53B862BDFBF8D00C32D95 /* UserLoginDto.swift in Sources */,
+				30A53B8F2BDFDCBB00C32D95 /* UserAuthenticationAPI.swift in Sources */,
 				304166082BAB67F300AC1081 /* PopperApp.swift in Sources */,
 				302DDADA2BC866D70050AF2A /* PopperLoadingButton.swift in Sources */,
 				30EBB0FB2BAC6642009A9586 /* ExploreView.swift in Sources */,
@@ -476,6 +492,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -539,6 +556,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -565,11 +583,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Popper/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = POPPER/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -582,6 +603,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = hr.algebra.Popper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -593,11 +615,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Popper/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = POPPER/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -610,6 +634,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = hr.algebra.Popper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

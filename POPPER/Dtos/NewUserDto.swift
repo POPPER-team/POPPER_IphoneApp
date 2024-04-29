@@ -13,5 +13,4 @@ struct NewUserDto: Codable {
     let email: String
     let firstName: String
     let lastName: String
-    let dateOfBirth: String
 }

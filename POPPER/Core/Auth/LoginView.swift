@@ -43,7 +43,8 @@ struct LoginView: View {
                         Spacer()
                         PopperLoadingButton(buttonText: "Login", onClick: {
                             sleep(2);
-                            authenticateUser()
+                            UserAuthenticationAPI.userAuthenticationAPI.login(username: username, password: password)
+                                //authenticateUser()
                         })
                         .padding(.bottom, 50)
                     }.edgesIgnoringSafeArea(.bottom)
