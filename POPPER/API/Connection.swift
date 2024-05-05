@@ -7,11 +7,15 @@
 
 import Foundation
 
-class Connection {
-    var baseUrl = "http://localhost:7163"
+let conn = Conn();
+
+class Conn {
+    var baseUrl = 
+   // "https://localhost:7163"
+    "http://localhost:5029"
+    
     var jwtToken: String = ""
     var refreshToken: String = ""
-    static let connection = Connection()
     
     func getRequest(url: String, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         let url = URL(string: baseUrl + url)!

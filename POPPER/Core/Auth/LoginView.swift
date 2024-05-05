@@ -11,7 +11,7 @@ struct LoginView: View {
     let authenticateUser: () -> Void
     @State private var username = ""
     @State private var password = ""
-      
+    let userAuth = api.userAuth;
     
     var body: some View {
         NavigationStack {
@@ -43,7 +43,7 @@ struct LoginView: View {
                         Spacer()
                         PopperLoadingButton(buttonText: "Login", onClick: {
                             sleep(2);
-                            UserAuthenticationAPI.userAuthenticationAPI.login(username: username, password: password)
+                            userAuth.login(username: username, password: password)
                                 //authenticateUser()
                         })
                         .padding(.bottom, 50)
