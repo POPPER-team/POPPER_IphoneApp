@@ -11,8 +11,9 @@ let conn = Conn();
 
 class Conn {
     var baseUrl = 
-   // "https://localhost:7163"
-    "http://localhost:5029"
+   //"https://localhost:7163/api"
+    //TODO https needs certificate error -1202 need to add certificate
+    "http://localhost:5029/api"
     
     var jwtToken: String = ""
     var refreshToken: String = ""
