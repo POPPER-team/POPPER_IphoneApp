@@ -18,8 +18,8 @@ class Conn {
     var jwtToken: String = ""
     var refreshToken: String = ""
     
-    func getRequest(url: String, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        let url = URL(string: baseUrl + url)!
+    func getRequest(path: String, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        let url = URL(string: baseUrl + path)!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
@@ -30,11 +30,10 @@ class Conn {
         task.resume()
     }
     
-    func postRequest(url: String, body: Data, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        let url = URL(string: baseUrl + url)!
+    func postRequest(path: String, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        let url = URL(string: baseUrl + path)!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.httpBody = body
         request.setValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
@@ -45,8 +44,8 @@ class Conn {
         task.resume()
     }
     
-    func putRequest(url: String, body: Data, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        let url = URL(string: baseUrl + url)!
+    func putRequest(path: String, body: Data, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        let url = URL(string: baseUrl + path)!
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
         request.httpBody = body
@@ -60,8 +59,8 @@ class Conn {
         task.resume()
     }
     
-    func deleteRequest(url: String, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        let url = URL(string: baseUrl + url)!
+    func deleteRequest(path: String, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        let url = URL(string: baseUrl + path)!
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
         request.setValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")

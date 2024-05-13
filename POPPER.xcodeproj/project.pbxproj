@@ -70,8 +70,8 @@
 		30A53B852BDFBF8D00C32D95 /* UserLoginDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserLoginDto.swift; path = POPPER/Dtos/UserLoginDto.swift; sourceTree = SOURCE_ROOT; };
 		30A53B872BDFC0C900C32D95 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = POPPER/Model/User.swift; sourceTree = SOURCE_ROOT; };
 		30A53B892BDFC0D500C32D95 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDetails.swift; path = POPPER/Model/UserDetails.swift; sourceTree = SOURCE_ROOT; };
-		30A53B8C2BDFD36000C32D95 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = POPPER/API/Connection.swift; sourceTree = SOURCE_ROOT; };
-		30A53B8E2BDFDCBB00C32D95 /* UserAuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserAuthAPI.swift; path = POPPER/API/UserAuthAPI.swift; sourceTree = SOURCE_ROOT; };
+		30A53B8C2BDFD36000C32D95 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = Popper/API/ApiHelpers/Connection.swift; sourceTree = SOURCE_ROOT; };
+		30A53B8E2BDFDCBB00C32D95 /* UserAuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserAuthAPI.swift; path = Popper/API/UserAuthAPI.swift; sourceTree = SOURCE_ROOT; };
 		30EBB0FA2BAC6642009A9586 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		30EBB0FC2BAC665E009A9586 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		30EBB0FE2BAC6A61009A9586 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 		30EBB1062BAC6DB2009A9586 /* PostGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridView.swift; sourceTree = "<group>"; };
 		30EBB10A2BAC7107009A9586 /* UserStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatView.swift; sourceTree = "<group>"; };
 		30F844042BAB6F2900F4D4CC /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
-		5C6ED0D02BE7EBAC00A2204F /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Api.swift; path = POPPER/API/Api.swift; sourceTree = SOURCE_ROOT; };
+		5C6ED0D02BE7EBAC00A2204F /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Api.swift; path = Popper/API/Api.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,9 +322,9 @@
 		30A53B8B2BDFD28500C32D95 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				30A53B8C2BDFD36000C32D95 /* Connection.swift */,
-				30A53B8E2BDFDCBB00C32D95 /* UserAuthAPI.swift */,
+				5CDFCD712BF2725C00AC6250 /* ApiHelpers */,
 				5C6ED0D02BE7EBAC00A2204F /* Api.swift */,
+				30A53B8E2BDFDCBB00C32D95 /* UserAuthAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -344,6 +344,14 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5CDFCD712BF2725C00AC6250 /* ApiHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				30A53B8C2BDFD36000C32D95 /* Connection.swift */,
+			);
+			path = ApiHelpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
