@@ -11,8 +11,8 @@ class UserAuthApi
  {
     
     func login(username: String, password: String) -> Bool {
-        var urlPath = "/UserAuthentication/Login";
-        
+        let urlPath = "/UserAuthentication/Login";
+        	
         var url = URLComponents();
         url.queryItems = [URLQueryItem(name: "Username", value: username), URLQueryItem(name: "Password", value: password)]
         url.path = urlPath
@@ -27,7 +27,8 @@ class UserAuthApi
             }
             else{
                 print(error)
-            }}
+            }
+        }
         
             return true
     }
