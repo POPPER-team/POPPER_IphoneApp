@@ -4,33 +4,33 @@
 //
 //  Created by Matija Lukanić on 29.04.2024..
 //
-
 import Foundation
 
 class UserAuthApi
  {
     
-    func login(username: String, password: String) -> Bool {
+    func login(username: String, password: String, tokensEscape: @escaping (TokensDto?) -> ()) {
         let urlPath = "/UserAuthentication/Login";
-        	
+    
         var url = URLComponents();
         url.queryItems = [URLQueryItem(name: "Username", value: username), URLQueryItem(name: "Password", value: password)]
         url.path = urlPath
         
-        conn.postRequest(path: url.string!){ data, response, error in
+        conn.postRequest(path: url.string!){data, response, error in
             if let data = data {
                 if let tokens = try? JSONDecoder().decode(TokensDto.self, from: data){
-                    conn.jwtToken = tokens.jwtToken
-                    conn.refreshToken = tokens.refreshToken
+                    tokensEscape(tokens)
                 }
-                else {print("Cant decode data")}
+                else {
+                    print("Cant decode data")
+                    tokensEscape(nil)
+                }
             }
             else{
+                tokensEscape(nil)
                 print(error)
             }
         }
-        
-            return true
     }
     
 //    func register(username: String, password: String, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {

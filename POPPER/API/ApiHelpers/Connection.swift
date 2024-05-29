@@ -26,7 +26,6 @@ class Conn {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             completion(data, response, error)
         }
-        
         task.resume()
     }
     

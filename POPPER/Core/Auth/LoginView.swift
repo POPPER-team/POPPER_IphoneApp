@@ -42,9 +42,19 @@ struct LoginView: View {
                     VStack{
                         Spacer()
                         PopperLoadingButton(buttonText: "Login", onClick: {
-                            sleep(2);
-                            userAuth.login(username: username, password: password)
-                                //authenticateUser()
+                                userAuth.login(username: username, password: password){data in
+                                    if let tokens = data{
+                                        conn.jwtToken = tokens.jwtToken
+                                        conn.refreshToken = tokens.refreshToken
+                                        //TODO get user, set user, move to feed
+                                        
+                                        //NavigationLink(destination: FeedView())
+                                    }
+                                    else{
+                                        print("Error logging in")
+                                    }
+                            }
+
                         })
                         .padding(.bottom, 50)
                     }.edgesIgnoringSafeArea(.bottom)
