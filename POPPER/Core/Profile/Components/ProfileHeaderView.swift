@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProfileHeaderView: View {
+    @State private var isEditingProfile = false
+    private var user = UserControl.getUser()
     var gen_rnd = Int.random(in: 1..<1000)
     var body: some View {
         VStack(spacing: 16){
@@ -29,17 +31,12 @@ struct ProfileHeaderView: View {
                 
             }
             
-            Button{
-                
-            } label: {
-                Text("Edit Profile")
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .frame(width: 360, height:32)
-                    .foregroundStyle(.black)
-                    .background(Color(.systemGray6))
-                    .clipShape(RoundedRectangle(cornerRadius: 6))
-            }
+            PopperButton(buttonText: "Edit Profile", onClick: {
+                isEditingProfile.toggle()
+            })
+            .sheet(isPresented: $isEditingProfile, content: {
+                EditProfileView(user: user!)
+            })
             
             Divider()
         }

@@ -9,11 +9,11 @@ import SwiftUI
 
 @main
 struct PopperApp: App {
-    @State private var user: UserDetailsDto? = nil
+    @State private var user: Bool = false
     var body: some Scene {
 
         WindowGroup {
-            if user != nil {
+            if user {
                 MainTabView()
             } else {
                 LoginView(authenticateUser: authUser)
@@ -23,7 +23,10 @@ struct PopperApp: App {
     }
     
     public func authUser(userDto: UserDetailsDto) {
-        user = userDto
+        user = true
+        UserControl.setUser(userDetails: userDto)
     }
+    
+    
     
 }
