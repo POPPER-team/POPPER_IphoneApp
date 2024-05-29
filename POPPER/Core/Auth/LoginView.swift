@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    let authenticateUser: () -> Void
+    let authenticateUser: (UserDetailsDto) -> Void
     @State private var username = ""
     @State private var password = ""
     let userAuth = api.userAuth;
@@ -42,12 +42,21 @@ struct LoginView: View {
                     VStack{
                         Spacer()
                         PopperLoadingButton(buttonText: "Login", onClick: {
+                            sleep(2);
                                 userAuth.login(username: username, password: password){data in
                                     if let tokens = data{
                                         conn.jwtToken = tokens.jwtToken
                                         conn.refreshToken = tokens.refreshToken
-                                        //TODO get user, set user, move to feed
-                                        
+                                        //TODO: get user, set user, move to feed
+                                        UserAPI().GetYourData(){user in
+                                            if user != nil{
+                                                print("User: \(user?.username)")
+                                                authenticateUser(user!);
+                                            }
+                                            else{
+                                                print("Error getting user")
+                                            }
+                                        }
                                         //NavigationLink(destination: FeedView())
                                     }
                                     else{
@@ -65,5 +74,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView(authenticateUser: {})
+    LoginView(authenticateUser: {_ in })
 }

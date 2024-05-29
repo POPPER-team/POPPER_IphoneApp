@@ -34,7 +34,7 @@ class Conn {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("Bearer \(jwtToken)", forHTTPHeaderField: "Authorization")
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        //request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             completion(data, response, error)

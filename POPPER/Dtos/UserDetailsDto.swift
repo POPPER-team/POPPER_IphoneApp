@@ -8,15 +8,16 @@
 import Foundation
 
 struct UserDetailsDto: Codable {
-    let username: String
-    let guid: String
-    let email: String
-    let firstName: String
-    let lastName: String
-    let dateOfBirth: String
-    let status: String
-    let webLink: String
-    let preferredUnits: String
-    let language: String
+    var username: String
+    var guid: String
+    var email: String?
+    var firstName: String
+    var lastName: String
+    var created: String
+    var dateOfBirth: String?
+    var status: String?
+    var webLink: String?
+    var preferredUnits: String?
+    var language: String?
 }
 

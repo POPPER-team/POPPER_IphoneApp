@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RegisterView: View {
-    let authenticateUser: () -> Void
+    let authenticateUser: (UserDetailsDto) -> Void
     @State var firstName = "";
     @State var lastName = "";
     @State private var username = ""
@@ -51,7 +51,8 @@ struct RegisterView: View {
                         Spacer()
                         PopperLoadingButton(buttonText: "Register", onClick: {
                             sleep(2);
-                            authenticateUser()
+                            var user :UserDetailsDto? = nil;
+                            authenticateUser(user!)
                         })
                         .padding(.bottom, 50)
                     }.edgesIgnoringSafeArea(.bottom)
@@ -62,5 +63,5 @@ struct RegisterView: View {
 }
 
 #Preview {
-    RegisterView(authenticateUser: {})
+    RegisterView(authenticateUser: {_ in })
 }
