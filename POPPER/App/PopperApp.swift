@@ -9,11 +9,11 @@ import SwiftUI
 
 @main
 struct PopperApp: App {
-    @State private var isUserLoggedIn = false
+    @State private var user: UserDetailsDto? = nil
     var body: some Scene {
 
         WindowGroup {
-            if isUserLoggedIn {
+            if user != nil {
                 MainTabView()
             } else {
                 LoginView(authenticateUser: authUser)
@@ -22,8 +22,8 @@ struct PopperApp: App {
         
     }
     
-    public func authUser() {
-        isUserLoggedIn.toggle()
+    public func authUser(userDto: UserDetailsDto) {
+        user = userDto
     }
     
 }

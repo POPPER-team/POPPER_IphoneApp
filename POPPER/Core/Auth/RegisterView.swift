@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct RegisterView: View {
-    let authenticateUser: () -> Void
+    let authenticateUser: (UserDetailsDto) -> Void
     @State var firstName = "";
     @State var lastName = "";
-    @State private var emailOrUsername = ""
+    @State private var username = ""
     @State private var password = ""
     
         
@@ -32,7 +32,7 @@ struct RegisterView: View {
                     
                     PopperInputField(placeholder: "Last name", text: $lastName)
                     
-                    PopperInputField(placeholder: "Email or username", text: $emailOrUsername)
+                    PopperInputField(placeholder: "Username", text: $username)
                 
                     PopperSecureField(placeholder: "Password", text: $password)
                     
@@ -51,7 +51,8 @@ struct RegisterView: View {
                         Spacer()
                         PopperLoadingButton(buttonText: "Register", onClick: {
                             sleep(2);
-                            authenticateUser()
+                            var user :UserDetailsDto? = nil;
+                            authenticateUser(user!)
                         })
                         .padding(.bottom, 50)
                     }.edgesIgnoringSafeArea(.bottom)
@@ -62,5 +63,5 @@ struct RegisterView: View {
 }
 
 #Preview {
-    RegisterView(authenticateUser: {})
+    RegisterView(authenticateUser: {_ in })
 }

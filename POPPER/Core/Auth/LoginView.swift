@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct LoginView: View {
-    let authenticateUser: () -> Void
-    @State private var emailOrUsername = ""
+    let authenticateUser: (UserDetailsDto) -> Void
+    @State private var username = ""
     @State private var password = ""
-      
+    let userAuth = api.userAuth;
     
     var body: some View {
         NavigationStack {
@@ -26,7 +26,7 @@ struct LoginView: View {
                     .bold()
                     .padding()
                     
-                    PopperInputField(placeholder: "Email or username", text: $emailOrUsername)
+                    PopperInputField(placeholder: "Username", text: $username)
                 
                     PopperSecureField(placeholder: "Password", text: $password)
                     
@@ -43,7 +43,27 @@ struct LoginView: View {
                         Spacer()
                         PopperLoadingButton(buttonText: "Login", onClick: {
                             sleep(2);
-                            authenticateUser()
+                                userAuth.login(username: username, password: password){data in
+                                    if let tokens = data{
+                                        conn.jwtToken = tokens.jwtToken
+                                        conn.refreshToken = tokens.refreshToken
+                                        //TODO: get user, set user, move to feed
+                                        UserAPI().GetYourData(){user in
+                                            if user != nil{
+                                                print("User: \(user?.username)")
+                                                authenticateUser(user!);
+                                            }
+                                            else{
+                                                print("Error getting user")
+                                            }
+                                        }
+                                        //NavigationLink(destination: FeedView())
+                                    }
+                                    else{
+                                        print("Error logging in")
+                                    }
+                            }
+
                         })
                         .padding(.bottom, 50)
                     }.edgesIgnoringSafeArea(.bottom)
@@ -54,5 +74,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView(authenticateUser: {})
+    LoginView(authenticateUser: {_ in })
 }
