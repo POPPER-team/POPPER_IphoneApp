@@ -12,6 +12,7 @@ struct LoginView: View {
     @State private var username = ""
     @State private var password = ""
     let userAuth = api.userAuth;
+    @State private var showingAlert = false
     
     var body: some View {
         NavigationStack {
@@ -60,7 +61,7 @@ struct LoginView: View {
                                         //NavigationLink(destination: FeedView())
                                     }
                                     else{
-                                        print("Error logging in")
+                                        showingAlert = true
                                     }
                             }
 
@@ -69,6 +70,9 @@ struct LoginView: View {
                     }.edgesIgnoringSafeArea(.bottom)
                 }.padding(.top, 100)
             }.navigationBarHidden(true)
+                .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Error"), message: Text("Invalid username or password"), dismissButton: .default(Text("Got it!")))
+                }
         }
     }
 }
