@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		301D8E492C0CA248001D3335 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301D8E482C0CA248001D3335 /* Comment.swift */; };
+		301D8E4B2C0CA2B0001D3335 /* CommentSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301D8E4A2C0CA2B0001D3335 /* CommentSectionView.swift */; };
 		302DDAD82BC866950050AF2A /* LoadingButton in Frameworks */ = {isa = PBXBuildFile; productRef = 302DDAD72BC866950050AF2A /* LoadingButton */; };
 		302DDADA2BC866D70050AF2A /* PopperLoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302DDAD92BC866D70050AF2A /* PopperLoadingButton.swift */; };
 		3038E4082BAC9475004A9720 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3038E4072BAC9475004A9720 /* Post.swift */; };
@@ -47,6 +49,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		301D8E482C0CA248001D3335 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = POPPER/Model/Comment.swift; sourceTree = SOURCE_ROOT; };
+		301D8E4A2C0CA2B0001D3335 /* CommentSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CommentSectionView.swift; path = POPPER/Core/Feed/View/CommentSectionView.swift; sourceTree = SOURCE_ROOT; };
 		302DDAD92BC866D70050AF2A /* PopperLoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopperLoadingButton.swift; path = POPPER/Core/Components/PopperLoadingButton.swift; sourceTree = SOURCE_ROOT; };
 		3038E4072BAC9475004A9720 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		3038E40C2BAC9558004A9720 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 			children = (
 				30F844042BAB6F2900F4D4CC /* FeedView.swift */,
 				3043B8EC2BAB716500F30A40 /* FeedCell.swift */,
+				301D8E4A2C0CA2B0001D3335 /* CommentSectionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -201,6 +206,7 @@
 				3038E4072BAC9475004A9720 /* Post.swift */,
 				30A53B872BDFC0C900C32D95 /* User.swift */,
 				30A53B892BDFC0D500C32D95 /* UserDetails.swift */,
+				301D8E482C0CA248001D3335 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -443,9 +449,11 @@
 				3043B8ED2BAB716500F30A40 /* FeedCell.swift in Sources */,
 				30A53B822BDFBF4B00C32D95 /* UserDetailsDto.swift in Sources */,
 				30A53B882BDFC0C900C32D95 /* User.swift in Sources */,
+				301D8E492C0CA248001D3335 /* Comment.swift in Sources */,
 				3038E40D2BAC9558004A9720 /* FeedViewModel.swift in Sources */,
 				3098F09C2BBECE6F004D4D07 /* PopperSecureField.swift in Sources */,
 				3038E4082BAC9475004A9720 /* Post.swift in Sources */,
+				301D8E4B2C0CA2B0001D3335 /* CommentSectionView.swift in Sources */,
 				303E81E92BBDA79100ABFE88 /* RegisterView.swift in Sources */,
 				30A53B862BDFBF8D00C32D95 /* UserLoginDto.swift in Sources */,
 				30A53B8F2BDFDCBB00C32D95 /* UserAuthAPI.swift in Sources */,
