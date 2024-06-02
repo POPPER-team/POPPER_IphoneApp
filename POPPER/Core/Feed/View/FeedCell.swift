@@ -13,6 +13,8 @@ struct FeedCell: View {
     let post: Post
     var player: AVPlayer
     @State private var isShowingComments = false
+    @State private var isSharing = false
+    @StateObject private var viewModel = UserViewModel()
     init (post: Post, player: AVPlayer){
         self.post = post
         self.player = player
@@ -90,9 +92,9 @@ struct FeedCell: View {
                                     .bold()
                             }
                         }
-                        Button {
-                            
-                        } label: {
+                        Button(action: {
+                            isSharing.toggle()
+                        }) {
                             VStack {
                                 Image(systemName: "arrowshape.turn.up.right.fill")
                                     .resizable()
@@ -104,6 +106,8 @@ struct FeedCell: View {
                                     .foregroundStyle(.white)
                                     .bold()
                             }
+                        }.sheet(isPresented: $isSharing) {
+                            SearchView(viewModel: viewModel)
                         }
                     }
                     .padding(.bottom, 60)

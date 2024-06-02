@@ -10,7 +10,7 @@ import SwiftUI
 struct Comment: Identifiable {
     let id = UUID()
     let text: String
-    let author: String
+    let author: String //promijeni u userapi koji geta usera
     let date: Date
 }
 
