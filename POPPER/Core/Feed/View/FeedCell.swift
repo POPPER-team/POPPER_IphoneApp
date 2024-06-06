@@ -12,7 +12,9 @@ struct FeedCell: View {
     var gen_rnd = Int.random(in: 1..<1000)
     let post: Post
     var player: AVPlayer
-    
+    @State private var isShowingComments = false
+    @State private var isSharing = false
+    @StateObject private var viewModel = UserViewModel()
     init (post: Post, player: AVPlayer){
         self.post = post
         self.player = player
@@ -28,7 +30,7 @@ struct FeedCell: View {
                 HStack(alignment: .bottom) {
                     VStack(alignment: .leading) {
                         Text("user" + gen_rnd.formatted())
-                        .fontWeight(.semibold)
+                            .fontWeight(.semibold)
                         Text(String(repeating: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ", count: 2))
                             .lineLimit(3)
                     }
@@ -50,28 +52,30 @@ struct FeedCell: View {
                                 Image(systemName: "heart.fill")
                                     .resizable()
                                     .frame(width: 28, height: 28)
-                                .foregroundStyle(.white)
-
+                                    .foregroundStyle(.white)
+                                
                                 Text(Int.random(in: 1..<1000).formatted())
                                     .font(.caption)
                                     .foregroundStyle(.white)
                                     .bold()
                             }
                         }
-                        Button {
-                            
-                        } label: {
+                        Button(action: {
+                            isShowingComments.toggle()
+                        }) {
                             VStack {
                                 Image(systemName: "ellipsis.bubble.fill")
                                     .resizable()
                                     .frame(width: 28, height: 28)
-                                .foregroundStyle(.white)
+                                    .foregroundStyle(.white)
                                 
                                 Text(Int.random(in: 1..<30).formatted())
                                     .font(.caption)
                                     .foregroundStyle(.white)
                                     .bold()
                             }
+                        }.sheet(isPresented: $isShowingComments) {
+                            CommentSectionView()
                         }
                         Button {
                             
@@ -80,7 +84,7 @@ struct FeedCell: View {
                                 Image(systemName: "bookmark.fill")
                                     .resizable()
                                     .frame(width: 22, height: 28)
-                                .foregroundStyle(.white)
+                                    .foregroundStyle(.white)
                                 
                                 Text(Int.random(in: 1..<46).formatted())
                                     .font(.caption)
@@ -88,20 +92,22 @@ struct FeedCell: View {
                                     .bold()
                             }
                         }
-                        Button {
-                            
-                        } label: {
+                        Button(action: {
+                            isSharing.toggle()
+                        }) {
                             VStack {
                                 Image(systemName: "arrowshape.turn.up.right.fill")
                                     .resizable()
                                     .frame(width: 28, height: 28)
-                                .foregroundStyle(.white)
+                                    .foregroundStyle(.white)
                                 
                                 Text(Int.random(in: 1..<21).formatted())
                                     .font(.caption)
                                     .foregroundStyle(.white)
                                     .bold()
                             }
+                        }.sheet(isPresented: $isSharing) {
+                            SearchView(viewModel: viewModel)
                         }
                     }
                     .padding(.bottom, 60)
