@@ -19,7 +19,7 @@ struct ProfileHeaderView: View {
                     .frame(width: 80, height: 80)
                     .foregroundStyle(Color(.systemGray))
                 
-                Text("@user" + gen_rnd.formatted())
+                Text(user?.username.lowercased() ?? "\("user" + gen_rnd.formatted())")
                     .font(.subheadline)
                     .fontWeight(.semibold)
             }
