@@ -34,7 +34,7 @@ import Foundation
 class UploadApi{
     
     func UploadPost(newPost:NewPostDto){
-        let urlPath = "Post/CreatePost";
+        let urlPath = "/Post/CreatePost";
         var data :Data? = try? JSONSerialization.data(withJSONObject: newPost);
         
         conn.putRequest(path: urlPath, body: data!){
@@ -49,16 +49,17 @@ class UploadApi{
     }
     
     func GetPost(guid:String, PostExcape:@escaping(PostDto?) ->()){
-        let urlPath = "Post/GetPost/\(guid)";
+        let urlPath = "/Post/GetPost/\(guid)";
         conn.getRequest(path: urlPath){
             data, response, error in
+                print(response)
             
         }
     }
     
     func DeletePost(guid:String){
         //TODO: na backendu je guid bez / popravi
-        let urlPath = "Post/DeletePost/\(guid)";
+        let urlPath = "/Post/DeletePost/\(guid)";
         conn.deleteRequest(path: urlPath){
             data, response, error in
             

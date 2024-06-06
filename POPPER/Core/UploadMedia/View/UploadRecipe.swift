@@ -10,7 +10,7 @@ import SwiftUI
 struct UploadRecipe: View {
     @State private var recipePart: String = ""
     let currentStepIndex : Int
-    
+    let postApi = api.uploadPost;
     var body: some View {
         ScrollView{
             Spacer()
@@ -38,8 +38,11 @@ struct UploadRecipe: View {
                     } .padding(.top)
                     VStack(){
                         UploadFile()
-                        
-                        PopperButton(buttonText: "PREVIEW AND UPLOAD", onClick: {})
+                        PopperButton(buttonText: "PREVIEW AND UPLOAD", onClick: {
+                            api.uploadPost.GetPost(guid: "123"){_ in 
+                                print ("Bokic")
+                            }
+                        })
                     }
             }
             .padding(20)
