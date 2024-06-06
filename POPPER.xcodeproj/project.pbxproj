@@ -25,6 +25,8 @@
 		3098F09C2BBECE6F004D4D07 /* PopperSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098F09B2BBECE6F004D4D07 /* PopperSecureField.swift */; };
 		3098F09E2BBED206004D4D07 /* PopperButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098F09D2BBED206004D4D07 /* PopperButton.swift */; };
 		309EC1502C0747BD00B6B4B0 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309EC14F2C0747BD00B6B4B0 /* UserAPI.swift */; };
+		309EC1552C07604300B6B4B0 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309EC1542C07604300B6B4B0 /* EditProfileView.swift */; };
+		309EC1572C07651100B6B4B0 /* UserControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309EC1562C07651100B6B4B0 /* UserControl.swift */; };
 		30A53B772BDFBAE200C32D95 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A53B762BDFBAE200C32D95 /* AuthenticationService.swift */; };
 		30A53B7C2BDFBEBB00C32D95 /* FileUploadDtos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A53B7B2BDFBEBB00C32D95 /* FileUploadDtos.swift */; };
 		30A53B7E2BDFBF0000C32D95 /* NewUserDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A53B7D2BDFBF0000C32D95 /* NewUserDto.swift */; };
@@ -70,6 +72,8 @@
 		3098F09B2BBECE6F004D4D07 /* PopperSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopperSecureField.swift; sourceTree = "<group>"; };
 		3098F09D2BBED206004D4D07 /* PopperButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopperButton.swift; sourceTree = "<group>"; };
 		309EC14F2C0747BD00B6B4B0 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserAPI.swift; path = POPPER/API/UserAPI.swift; sourceTree = SOURCE_ROOT; };
+		309EC1542C07604300B6B4B0 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditProfileView.swift; path = POPPER/Core/Profile/Components/EditProfileView.swift; sourceTree = SOURCE_ROOT; };
+		309EC1562C07651100B6B4B0 /* UserControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserControl.swift; path = POPPER/Core/Profile/Components/UserControl.swift; sourceTree = SOURCE_ROOT; };
 		30A53B762BDFBAE200C32D95 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthenticationService.swift; path = POPPER/Core/Components/AuthenticationService.swift; sourceTree = SOURCE_ROOT; };
 		30A53B7B2BDFBEBB00C32D95 /* FileUploadDtos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FileUploadDtos.swift; path = POPPER/Dtos/FileUploadDtos.swift; sourceTree = SOURCE_ROOT; };
 		30A53B7D2BDFBF0000C32D95 /* NewUserDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewUserDto.swift; path = POPPER/Dtos/NewUserDto.swift; sourceTree = SOURCE_ROOT; };
@@ -204,6 +208,7 @@
 		3041661D2BAB691000AC1081 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				309EC1562C07651100B6B4B0 /* UserControl.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 				30EBB1042BAC6DA2009A9586 /* ProfileHeaderView.swift */,
 				30EBB1062BAC6DB2009A9586 /* PostGridView.swift */,
 				30EBB10A2BAC7107009A9586 /* UserStatView.swift */,
+				309EC1542C07604300B6B4B0 /* EditProfileView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -448,6 +454,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				309EC1552C07604300B6B4B0 /* EditProfileView.swift in Sources */,
 				30F844052BAB6F2900F4D4CC /* FeedView.swift in Sources */,
 				3038E40F2BAC9EC9004A9720 /* CustomVideoPlayer.swift in Sources */,
 				30DC9CFD2C0CD44900A21354 /* UserIdentifiable.swift in Sources */,
@@ -484,6 +491,7 @@
 				5C6ED0D12BE7EBAC00A2204F /* Api.swift in Sources */,
 				303E81E72BBD9C6C00ABFE88 /* LoginView.swift in Sources */,
 				30EBB0FF2BAC6A61009A9586 /* NotificationsView.swift in Sources */,
+				309EC1572C07651100B6B4B0 /* UserControl.swift in Sources */,
 				3098F09E2BBED206004D4D07 /* PopperButton.swift in Sources */,
 				30A53B7C2BDFBEBB00C32D95 /* FileUploadDtos.swift in Sources */,
 				30A53B8A2BDFC0D500C32D95 /* UserDetails.swift in Sources */,

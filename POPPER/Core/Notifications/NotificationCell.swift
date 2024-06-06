@@ -9,13 +9,14 @@ import SwiftUI
 
 struct NotificationCell: View {
     var gen_rnd = Int.random(in: 1..<1000)
+    private var user = UserControl.getUser()
     var body: some View {
         HStack{
             Image(systemName: "person.circle.fill")
                 .frame(width: 32, height: 32)
                 .foregroundStyle(Color(.systemGray5))
             HStack{
-                Text("user" + gen_rnd.formatted())
+                Text(user?.username.lowercased() ?? "\("user" + gen_rnd.formatted())")
                     .font(.footnote)
                     .fontWeight(.semibold)
                 Text("liked one of your posts")

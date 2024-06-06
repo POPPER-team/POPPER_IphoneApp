@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UserCell: View {
     var gen_rnd = Int.random(in: 1..<1000)
+    private var user = UserControl.getUser()
     var body: some View {
         HStack(spacing: 12){
             Image(systemName: "person.circle.fill")
@@ -17,10 +18,10 @@ struct UserCell: View {
                 .foregroundStyle(Color(.systemGray))
             
             VStack(alignment: .leading){
-                Text("user" + gen_rnd.formatted())
+                Text(user?.username.lowercased() ?? "\("user" + gen_rnd.formatted())")
                     .font(.subheadline)
                     .fontWeight(.semibold)
-                Text("User" + " " + gen_rnd.formatted())
+                Text(user?.username.lowercased() ?? "\("user" + gen_rnd.formatted())")
                     .font(.footnote)
             }
             Spacer()
