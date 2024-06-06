@@ -77,7 +77,7 @@ struct FeedCell: View {
                                 }
                             
                         Button {
-                            
+                            isShowingComments.toggle()
                         } label: {
                             VStack {
                                 Image(systemName: "ellipsis.bubble.fill")
@@ -114,7 +114,7 @@ struct FeedCell: View {
                                     }
                                 }
                         Button {
-                            
+                            isSharing.toggle()
                         } label: {
                             VStack {
                                 Image(systemName: "arrowshape.turn.up.right.fill")
