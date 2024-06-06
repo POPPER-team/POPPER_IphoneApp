@@ -51,6 +51,8 @@
 		30EBB10B2BAC7107009A9586 /* UserStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EBB10A2BAC7107009A9586 /* UserStatView.swift */; };
 		30F844052BAB6F2900F4D4CC /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F844042BAB6F2900F4D4CC /* FeedView.swift */; };
 		5C26583B2C1213A000DC9749 /* UploadApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C26583A2C1213A000DC9749 /* UploadApi.swift */; };
+		5C26583D2C12176500DC9749 /* NewPostDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C26583C2C12176500DC9749 /* NewPostDto.swift */; };
+		5C26583F2C12192000DC9749 /* PostDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C26583E2C12192000DC9749 /* PostDto.swift */; };
 		5C6ED0D12BE7EBAC00A2204F /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6ED0D02BE7EBAC00A2204F /* Api.swift */; };
 		5CD2BA652C0722D40031893D /* UploadRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2BA642C0722D40031893D /* UploadRecipe.swift */; };
 		5CD2BA6B2C0732630031893D /* tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2BA6A2C0732630031893D /* tap.swift */; };
@@ -106,6 +108,8 @@
 		30EBB10A2BAC7107009A9586 /* UserStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatView.swift; sourceTree = "<group>"; };
 		30F844042BAB6F2900F4D4CC /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		5C26583A2C1213A000DC9749 /* UploadApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadApi.swift; path = POPPER/API/UploadApi.swift; sourceTree = SOURCE_ROOT; };
+		5C26583C2C12176500DC9749 /* NewPostDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewPostDto.swift; path = POPPER/Dtos/NewPostDto.swift; sourceTree = SOURCE_ROOT; };
+		5C26583E2C12192000DC9749 /* PostDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostDto.swift; path = POPPER/Dtos/PostDto.swift; sourceTree = SOURCE_ROOT; };
 		5C6ED0D02BE7EBAC00A2204F /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Api.swift; path = Popper/API/Api.swift; sourceTree = SOURCE_ROOT; };
 		5CD2BA642C0722D40031893D /* UploadRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadRecipe.swift; path = POPPER/Core/UploadMedia/View/UploadRecipe.swift; sourceTree = SOURCE_ROOT; };
 		5CD2BA6A2C0732630031893D /* tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = tap.swift; path = POPPER/Core/UploadMedia/tap.swift; sourceTree = SOURCE_ROOT; };
@@ -357,6 +361,8 @@
 				30A53B812BDFBF4B00C32D95 /* UserDetailsDto.swift */,
 				30A53B832BDFBF6700C32D95 /* UserDto.swift */,
 				30A53B852BDFBF8D00C32D95 /* UserLoginDto.swift */,
+				5C26583C2C12176500DC9749 /* NewPostDto.swift */,
+				5C26583E2C12192000DC9749 /* PostDto.swift */,
 			);
 			path = Dtos;
 			sourceTree = "<group>";
@@ -511,6 +517,7 @@
 				30A53B882BDFC0C900C32D95 /* User.swift in Sources */,
 				301D8E492C0CA248001D3335 /* Comment.swift in Sources */,
 				3038E40D2BAC9558004A9720 /* FeedViewModel.swift in Sources */,
+				5C26583D2C12176500DC9749 /* NewPostDto.swift in Sources */,
 				3098F09C2BBECE6F004D4D07 /* PopperSecureField.swift in Sources */,
 				5CD2BA732C0750050031893D /* StepIndexNonselected.swift in Sources */,
 				3038E4082BAC9475004A9720 /* Post.swift in Sources */,
@@ -544,6 +551,7 @@
 				3098F09E2BBED206004D4D07 /* PopperButton.swift in Sources */,
 				30A53B7C2BDFBEBB00C32D95 /* FileUploadDtos.swift in Sources */,
 				30A53B8A2BDFC0D500C32D95 /* UserDetails.swift in Sources */,
+				5C26583F2C12192000DC9749 /* PostDto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
