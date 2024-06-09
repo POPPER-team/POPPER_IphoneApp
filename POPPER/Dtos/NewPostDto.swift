@@ -8,11 +8,8 @@
 import Foundation
 
 class NewPostDto : Codable{
-
-//    public IFormFile Media { get; set; }
-
 var Title:String;
 var Description:String;
-var Ingridients:Array<String>;
-var Steps:Array<String>;
+var Ingridients:[String];
+var Steps:[String];
 }

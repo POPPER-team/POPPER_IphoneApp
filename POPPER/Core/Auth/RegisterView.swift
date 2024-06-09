@@ -11,10 +11,10 @@ struct RegisterView: View {
     let authenticateUser: (UserDetailsDto) -> Void
     @State var firstName = "";
     @State var lastName = "";
-    @State private var username = ""
-    @State private var password = ""
-    
-        
+    @State var username = ""
+    @State var password = ""
+    let userAuth = api.userAuth;
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -36,8 +36,6 @@ struct RegisterView: View {
                 
                     PopperSecureField(placeholder: "Password", text: $password)
                     
-                    PopperSecureField(placeholder: "Repeat password", text: $password)
-                    
                     HStack{
                         Text("Already have an account?")
                             .bold()
@@ -51,8 +49,32 @@ struct RegisterView: View {
                         Spacer()
                         PopperLoadingButton(buttonText: "Register", onClick: {
                             sleep(2);
-                            var user :UserDetailsDto? = nil;
-                            authenticateUser(user!)
+                            
+                            let newUser = NewUserDto(username: username,
+                                                     password: password,
+                                                     firstName: firstName,
+                                                     lastName: lastName);
+                            
+                            userAuth.register(newUser: newUser){data, response, error in 
+                                if data == data{
+                                    userAuth.login(username: username, password: password){
+                                        data in
+                                        if let tokens = data{
+                                            conn.jwtToken = tokens.jwtToken
+                                            conn.refreshToken = tokens.refreshToken
+                                            UserAPI().GetYourData(){user in
+                                                if user != nil{
+                                                    print("User: \(user?.username)")
+                                                    authenticateUser(user!);
+                                                }
+                                                else{
+                                                    print("Error getting user")
+                                                }
+                                            }
+                                        }
+                                    }
+                                }   }
+
                         })
                         .padding(.bottom, 50)
                     }.edgesIgnoringSafeArea(.bottom)

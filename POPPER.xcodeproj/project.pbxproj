@@ -61,6 +61,7 @@
 		5CD2BA732C0750050031893D /* StepIndexNonselected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2BA722C0750050031893D /* StepIndexNonselected.swift */; };
 		5CD2BA752C0751690031893D /* StepsFieldFocused.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2BA742C0751690031893D /* StepsFieldFocused.swift */; };
 		5CD2BA772C075C9B0031893D /* UploadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2BA762C075C9B0031893D /* UploadFile.swift */; };
+		5CDBEF3D2C15A9E800A93A9C /* FormRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDBEF3C2C15A9E800A93A9C /* FormRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,6 +119,7 @@
 		5CD2BA722C0750050031893D /* StepIndexNonselected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StepIndexNonselected.swift; path = POPPER/Core/Components/StepIndexNonselected.swift; sourceTree = SOURCE_ROOT; };
 		5CD2BA742C0751690031893D /* StepsFieldFocused.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StepsFieldFocused.swift; path = POPPER/Core/Components/StepsFieldFocused.swift; sourceTree = SOURCE_ROOT; };
 		5CD2BA762C075C9B0031893D /* UploadFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadFile.swift; path = POPPER/Core/Components/UploadFile.swift; sourceTree = SOURCE_ROOT; };
+		5CDBEF3C2C15A9E800A93A9C /* FormRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FormRequest.swift; path = POPPER/API/ApiHelpers/FormRequest.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -421,6 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				30A53B8C2BDFD36000C32D95 /* Connection.swift */,
+				5CDBEF3C2C15A9E800A93A9C /* FormRequest.swift */,
 			);
 			path = ApiHelpers;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				309EC1552C07604300B6B4B0 /* EditProfileView.swift in Sources */,
+				5CDBEF3D2C15A9E800A93A9C /* FormRequest.swift in Sources */,
 				30F844052BAB6F2900F4D4CC /* FeedView.swift in Sources */,
 				3038E40F2BAC9EC9004A9720 /* CustomVideoPlayer.swift in Sources */,
 				30DC9CFD2C0CD44900A21354 /* UserIdentifiable.swift in Sources */,

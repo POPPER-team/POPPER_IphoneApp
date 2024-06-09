@@ -33,11 +33,9 @@
 import Foundation
 class UploadApi{
     
-    func UploadPost(newPost:NewPostDto){
+    func CreateNewPost(newPost:NewPostDto){
         let urlPath = "/Post/CreatePost";
-        var data :Data? = try? JSONSerialization.data(withJSONObject: newPost);
-        
-        conn.putRequest(path: urlPath, body: data!){
+        conn.postRequest(path: urlPath, body: newPost){
             data, response, error in
             if let data = data{
                 
@@ -46,6 +44,10 @@ class UploadApi{
                 print (error)
             }
         }
+    }
+    
+    func UploadMedia(){
+        
     }
     
     func GetPost(guid:String, PostExcape:@escaping(PostDto?) ->()){
