@@ -37,8 +37,6 @@ class Conn {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         if body != nil{
             request.httpBody = try? JSONEncoder().encode(body.unsafelyUnwrapped)
-            let jsonString = String(data: request.httpBody!, encoding: String.Encoding.utf8);
-            print(jsonString);
         }
             
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
