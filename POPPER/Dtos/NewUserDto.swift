@@ -8,9 +8,9 @@
 import Foundation
 
 struct NewUserDto: Codable {
-    let username: String
-    let password: String
-    let email: String
-    let firstName: String
-    let lastName: String
+    var username: String
+    var password: String
+    var email: String
+    var firstName: String
+    var lastName: String
 }

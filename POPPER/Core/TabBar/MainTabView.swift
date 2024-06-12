@@ -26,9 +26,8 @@ struct MainTabView: View {
                 }
                 .tag(1)
             
-            Text("Upload Post")
-                .tabItem { Image(systemName: "plus") }
-                .tag(2)
+            UploadRecipe(currentStepIndex: 1)
+                .tabItem { Image (systemName: "plus") }
             
             NotificationsView()
                 .tabItem {
