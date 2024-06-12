@@ -13,6 +13,7 @@ struct RegisterView: View {
     @State var lastName = "";
     @State var username = ""
     @State var password = ""
+    @State var email = ""
     let userAuth = api.userAuth;
 
     var body: some View {
@@ -32,6 +33,8 @@ struct RegisterView: View {
                     
                     PopperInputField(placeholder: "Last name", text: $lastName)
                     
+                    PopperInputField(placeholder: "Email", text: $email)
+
                     PopperInputField(placeholder: "Username", text: $username)
                 
                     PopperSecureField(placeholder: "Password", text: $password)
@@ -49,13 +52,13 @@ struct RegisterView: View {
                         Spacer()
                         PopperLoadingButton(buttonText: "Register", onClick: {
                             sleep(2);
-                            
                             let newUser = NewUserDto(username: username,
                                                      password: password,
+                                                     email: email,
                                                      firstName: firstName,
                                                      lastName: lastName);
                             
-                            userAuth.register(newUser: newUser){data, response, error in 
+                            userAuth.register(newUser: newUser){data, response, error in
                                 if data == data{
                                     userAuth.login(username: username, password: password){
                                         data in
@@ -73,7 +76,11 @@ struct RegisterView: View {
                                             }
                                         }
                                     }
-                                }   }
+                                }
+                                else {
+                                    print("Failed to register")
+                                }
+                            }
 
                         })
                         .padding(.bottom, 50)

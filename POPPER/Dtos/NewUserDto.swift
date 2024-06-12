@@ -10,6 +10,7 @@ import Foundation
 struct NewUserDto: Codable {
     var username: String
     var password: String
+    var email: String
     var firstName: String
     var lastName: String
 }
