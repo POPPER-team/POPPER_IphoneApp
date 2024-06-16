@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StepsFieldFocused: View {
+struct StepsField: View {
     @State private var recipePart: String = ""
     @State private var selected = false
     @State private var fieldHeight = 50
@@ -50,6 +50,6 @@ struct StepsFieldFocused: View {
         }
     }
 
-#Preview {
-    StepsFieldFocused()
+#Preview{
+    StepsField()
 }

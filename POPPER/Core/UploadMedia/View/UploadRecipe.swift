@@ -24,18 +24,16 @@ struct UploadRecipe: View {
                                 .fontWeight(.semibold)
                                 .frame(alignment: .leading)
                             Spacer()
-                            PopperCloseButton(onClick: {})
-                                .frame(alignment: .bottom)
                             
                         }
                         
                         PopperInputField(placeholder: "Enter title", text: $recipePart)
-                        Text("INGREDIENTS")
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                        PopperInputField(placeholder: "Enter ingredients", text: $recipePart)
-                        StepsFieldFocused()
-                    } .padding(.top)
+                        
+                        IngredientsField()
+                        StepsField()
+                    } 
+                    .padding(.top)
+                    .animation(.easeIn)
                     VStack(){
                         UploadFile()
                         PopperButton(buttonText: "PREVIEW AND UPLOAD", onClick: {

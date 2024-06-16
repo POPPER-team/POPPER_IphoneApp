@@ -54,13 +54,14 @@
 		5C26583D2C12176500DC9749 /* NewPostDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C26583C2C12176500DC9749 /* NewPostDto.swift */; };
 		5C26583F2C12192000DC9749 /* PostDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C26583E2C12192000DC9749 /* PostDto.swift */; };
 		5C6ED0D12BE7EBAC00A2204F /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6ED0D02BE7EBAC00A2204F /* Api.swift */; };
+		5C760CC22C1F5C1100A147F2 /* IngredientsField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C760CC12C1F5C1100A147F2 /* IngredientsField.swift */; };
 		5CC768F32C16DC6F009BFCC6 /* PopperImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC768F22C16DC6F009BFCC6 /* PopperImagePicker.swift */; };
 		5CD2BA652C0722D40031893D /* UploadRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2BA642C0722D40031893D /* UploadRecipe.swift */; };
 		5CD2BA6B2C0732630031893D /* tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2BA6A2C0732630031893D /* tap.swift */; };
 		5CD2BA6D2C07491C0031893D /* PopperCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2BA6C2C07491C0031893D /* PopperCloseButton.swift */; };
 		5CD2BA712C074F1B0031893D /* StepIndexSelected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2BA702C074F1B0031893D /* StepIndexSelected.swift */; };
 		5CD2BA732C0750050031893D /* StepIndexNonselected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2BA722C0750050031893D /* StepIndexNonselected.swift */; };
-		5CD2BA752C0751690031893D /* StepsFieldFocused.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2BA742C0751690031893D /* StepsFieldFocused.swift */; };
+		5CD2BA752C0751690031893D /* StepsField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2BA742C0751690031893D /* StepsField.swift */; };
 		5CD2BA772C075C9B0031893D /* UploadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2BA762C075C9B0031893D /* UploadFile.swift */; };
 		5CDBEF3D2C15A9E800A93A9C /* FormRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDBEF3C2C15A9E800A93A9C /* FormRequest.swift */; };
 /* End PBXBuildFile section */
@@ -113,13 +114,14 @@
 		5C26583C2C12176500DC9749 /* NewPostDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewPostDto.swift; path = POPPER/Dtos/NewPostDto.swift; sourceTree = SOURCE_ROOT; };
 		5C26583E2C12192000DC9749 /* PostDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostDto.swift; path = POPPER/Dtos/PostDto.swift; sourceTree = SOURCE_ROOT; };
 		5C6ED0D02BE7EBAC00A2204F /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Api.swift; path = Popper/API/Api.swift; sourceTree = SOURCE_ROOT; };
+		5C760CC12C1F5C1100A147F2 /* IngredientsField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IngredientsField.swift; path = POPPER/Core/Components/IngredientsField.swift; sourceTree = SOURCE_ROOT; };
 		5CC768F22C16DC6F009BFCC6 /* PopperImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopperImagePicker.swift; path = POPPER/Core/Components/PopperImagePicker.swift; sourceTree = SOURCE_ROOT; };
 		5CD2BA642C0722D40031893D /* UploadRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadRecipe.swift; path = POPPER/Core/UploadMedia/View/UploadRecipe.swift; sourceTree = SOURCE_ROOT; };
 		5CD2BA6A2C0732630031893D /* tap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = tap.swift; path = POPPER/Core/UploadMedia/tap.swift; sourceTree = SOURCE_ROOT; };
 		5CD2BA6C2C07491C0031893D /* PopperCloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PopperCloseButton.swift; path = POPPER/Core/Components/PopperCloseButton.swift; sourceTree = SOURCE_ROOT; };
 		5CD2BA702C074F1B0031893D /* StepIndexSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StepIndexSelected.swift; path = POPPER/Core/Components/StepIndexSelected.swift; sourceTree = SOURCE_ROOT; };
 		5CD2BA722C0750050031893D /* StepIndexNonselected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StepIndexNonselected.swift; path = POPPER/Core/Components/StepIndexNonselected.swift; sourceTree = SOURCE_ROOT; };
-		5CD2BA742C0751690031893D /* StepsFieldFocused.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StepsFieldFocused.swift; path = POPPER/Core/Components/StepsFieldFocused.swift; sourceTree = SOURCE_ROOT; };
+		5CD2BA742C0751690031893D /* StepsField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StepsField.swift; path = POPPER/Core/Components/StepsField.swift; sourceTree = SOURCE_ROOT; };
 		5CD2BA762C075C9B0031893D /* UploadFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadFile.swift; path = POPPER/Core/Components/UploadFile.swift; sourceTree = SOURCE_ROOT; };
 		5CDBEF3C2C15A9E800A93A9C /* FormRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FormRequest.swift; path = POPPER/API/ApiHelpers/FormRequest.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -407,8 +409,9 @@
 			children = (
 				5CD2BA702C074F1B0031893D /* StepIndexSelected.swift */,
 				5CD2BA722C0750050031893D /* StepIndexNonselected.swift */,
-				5CD2BA742C0751690031893D /* StepsFieldFocused.swift */,
+				5CD2BA742C0751690031893D /* StepsField.swift */,
 				5CD2BA762C075C9B0031893D /* UploadFile.swift */,
+				5C760CC12C1F5C1100A147F2 /* IngredientsField.swift */,
 			);
 			name = UploadComponents;
 			path = Popper/Core/UploadMedia/UploadComponents;
@@ -534,7 +537,7 @@
 				30A53B862BDFBF8D00C32D95 /* UserLoginDto.swift in Sources */,
 				5CC768F32C16DC6F009BFCC6 /* PopperImagePicker.swift in Sources */,
 				30A53B8F2BDFDCBB00C32D95 /* UserAuthAPI.swift in Sources */,
-				5CD2BA752C0751690031893D /* StepsFieldFocused.swift in Sources */,
+				5CD2BA752C0751690031893D /* StepsField.swift in Sources */,
 				304166082BAB67F300AC1081 /* PopperApp.swift in Sources */,
 				302DDADA2BC866D70050AF2A /* PopperLoadingButton.swift in Sources */,
 				30DC9CFB2C0CD33A00A21354 /* SearchView.swift in Sources */,
@@ -544,6 +547,7 @@
 				5CD2BA652C0722D40031893D /* UploadRecipe.swift in Sources */,
 				3041662C2BAB69D900AC1081 /* MainTabView.swift in Sources */,
 				309EC1502C0747BD00B6B4B0 /* UserAPI.swift in Sources */,
+				5C760CC22C1F5C1100A147F2 /* IngredientsField.swift in Sources */,
 				30A53B772BDFBAE200C32D95 /* AuthenticationService.swift in Sources */,
 				30EBB1072BAC6DB3009A9586 /* PostGridView.swift in Sources */,
 				5CD2BA6B2C0732630031893D /* tap.swift in Sources */,
