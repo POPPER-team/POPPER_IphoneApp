@@ -44,6 +44,8 @@ struct UploadRecipe: View {
                             }
                         })
                     }
+                    .animation(.easeIn)
+
             }
             .padding(20)
             .scrollTargetLayout()
