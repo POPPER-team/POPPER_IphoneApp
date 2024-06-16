@@ -128,7 +128,8 @@ struct FeedCell: View {
                                     .bold()
                             }
                         }.sheet(isPresented: $isSharing) {
-                            SearchView(viewModel: viewModel)
+                            //SearchView(viewModel: viewModel)
+                            UserSearchView()
                         }
                     }
                     .padding(.bottom, 60)
