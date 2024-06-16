@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct EditProfileView: View {
-    init(user: UserDetailsDto) {
-        self.username = user.username
-        self.bio = user.status ?? ""
-        self.dob = user.dateOfBirth ?? ""
-        self.website = user.webLink ?? ""
-        
-    }
+    
+    @State private var profilePicture:Image?;
+    
     @Environment(\.presentationMode) var presentationMode
+    
     @State private var username:String
     @State private var bio:String
     @State private var dob:String
@@ -25,9 +22,16 @@ struct EditProfileView: View {
     @State private var newPassword = ""
     @State private var isEditingProfilePicture = false
     
+    init(user: UserDetailsDto) {
+        self.username = user.username
+        self.bio = user.status ?? ""
+        self.dob = user.dateOfBirth ?? ""
+        self.website = user.webLink ?? ""
+        self.profilePicture = Image(systemName: "xmark")
+    };
     
     var body: some View {
-        VStack {
+                VStack {
             HStack {
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
@@ -103,6 +107,7 @@ struct EditProfileView: View {
                         
                         Button(action: {
                             //TODO: Handle choose a pic from gallery
+                            PopperImagePicker(image:self.$profilePicture);
                         }) {
                             Text("Choose from Gallery")
                                 .foregroundColor(.black)

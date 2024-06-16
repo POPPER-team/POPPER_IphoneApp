@@ -9,4 +9,5 @@ import Foundation
 let api = Api();
 class Api {
     let userAuth = UserAuthApi();
+    let uploadPost = UploadApi();
 }

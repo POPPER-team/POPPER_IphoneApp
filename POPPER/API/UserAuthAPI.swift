@@ -16,7 +16,7 @@ class UserAuthApi
         url.queryItems = [URLQueryItem(name: "Username", value: username), URLQueryItem(name: "Password", value: password)]
         url.path = urlPath
         
-        conn.postRequest(path: url.string!){data, response, error in
+        conn.postRequest(path: url.string!, body: nil){data, response, error in
             if let data = data {
                 if let tokens = try? JSONDecoder().decode(TokensDto.self, from: data){
                     tokensEscape(tokens)
@@ -33,14 +33,12 @@ class UserAuthApi
         }
     }
     
-//    func register(username: String, password: String, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-//        let url = "/UserAuthentication/register"
-//        let body = ["username": username, "password": password]
-//        let jsonData = try? JSONSerialization.data(withJSONObject: body)
-//        conn.postRequest(url: url, body: jsonData!) { data, response, error in
-//            completion(data, response, error)
-//        }
-//    }
+    func register(newUser:NewUserDto, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        let url = "/UserAuthentication/register"
+        conn.postRequest(path: url, body: newUser) { data, response, error in
+            completion(data, response, error)
+        }
+    }
     
 //    func refreshToken(completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
 //        let url = "/refresh"
