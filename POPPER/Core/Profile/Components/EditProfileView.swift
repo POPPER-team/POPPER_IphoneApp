@@ -21,13 +21,13 @@ struct EditProfileView: View {
     @State private var currentPassword = ""
     @State private var newPassword = ""
     @State private var isEditingProfilePicture = false
+    @State private var IsChoosingPicture = false
     
     init(user: UserDetailsDto) {
         self.username = user.username
         self.bio = user.status ?? ""
         self.dob = user.dateOfBirth ?? ""
         self.website = user.webLink ?? ""
-        self.profilePicture = Image(systemName: "xmark")
     };
     
     var body: some View {
@@ -55,22 +55,29 @@ struct EditProfileView: View {
                         .padding()
                 }
             }
-            
-            Image(systemName: "person.circle.fill")
-                .resizable()
-                .frame(width: 100, height: 100)
-                .foregroundColor(Color(.systemGray))
+                    if(profilePicture == nil){
+                        Image(systemName: "person.circle.fill")
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .foregroundColor(Color(.systemGray))
+
+                    }
+                    else {
+                        profilePicture!
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .foregroundColor(Color(.systemGray))
+                    }
             
             PopperButton(buttonText: "Edit picture", onClick: {
                 isEditingProfilePicture.toggle()
+                if(isPasswordDropdownOpen) {
+                    isPasswordDropdownOpen = false;
+                }
             })
             
             
             VStack(alignment: .leading, spacing: 20) {
-                //PopperInputField(labelText: "Name", placeholder: "Name")
-                //PopperInputField(labelText: "BIO", placeholder: "Add bio")
-                //PopperLabeledTextField(labelText: "DOB", placeholder: "DD/MM/YYYY")
-                //PopperLabeledTextField(labelText: "WEBSITE", placeholder: "add a link to your website")
                 PopperInputField(placeholder: "Name", text: $username)
                 PopperInputField(placeholder: "Bio", text: $bio)
                 PopperInputField(placeholder: "DOB", text: $dob)
@@ -85,43 +92,37 @@ struct EditProfileView: View {
                     Image(systemName: isPasswordDropdownOpen ? "chevron.down" : "chevron.left")
                         .foregroundColor(.black)
                 }.padding()
-                
-                if isPasswordDropdownOpen {
-                    PopperSecureField(placeholder: "Current Password", text: $currentPassword)
-                    
-                    PopperSecureField(placeholder: "New Password", text: $newPassword)
-                }
-                //TODO: Popravi ovo smece
-                if isEditingProfilePicture == true && isPasswordDropdownOpen == false {
-                    VStack {
-                        Spacer()
-                        Button(action: {
-                            //TODO: Handle take a pic
-                        }) {
-                            Text("Take a Picture")
-                                .foregroundColor(.black)
-                        }
-                        .padding()
+                    if isPasswordDropdownOpen {
+                        PopperSecureField(placeholder: "Current Password", text: $currentPassword)
+                            .animation(.easeIn, value: isPasswordDropdownOpen)
                         
-                        Divider()
-                        
-                        Button(action: {
-                            //TODO: Handle choose a pic from gallery
-                            PopperImagePicker(image:self.$profilePicture);
-                        }) {
-                            Text("Choose from Gallery")
-                                .foregroundColor(.black)
-                        }
-                        
+                        PopperSecureField(placeholder: "New Password", text: $newPassword)
+                            .animation(.easeIn, value: isPasswordDropdownOpen)
                     }
-                    .padding()
-                }
+                
             }
             .padding(.top, 25)
             .padding(.horizontal)
-            
+                    VStack {
+                            //TODO: Popravi ovo smece
+                            if isEditingProfilePicture == true{
+
+                                Spacer()
+                                PopperButton(buttonText: "Take a picture"){}
+                   
+                                PopperButton(buttonText: "Choose from gallery",onClick: {
+   
+                                    IsChoosingPicture.toggle()
+                                })
+                            }
+                        }
+                        .animation(.easeIn, value: isEditingProfilePicture)
+                        .padding()
+                    
             Spacer()
-        }
+                }.sheet(isPresented: $IsChoosingPicture){
+                    PopperImagePicker(image:self.$profilePicture);
+                }
     }
 }
 
