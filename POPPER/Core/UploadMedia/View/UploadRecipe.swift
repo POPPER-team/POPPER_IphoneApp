@@ -13,7 +13,16 @@ struct UploadRecipe: View {
     let postApi = api.uploadPost;
     var body: some View {
         ScrollView{
-            Spacer()
+            VStack {
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer() }
+            
                 VStack (spacing:10){
                     VStack(alignment: .leading)
                     {
