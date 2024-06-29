@@ -108,7 +108,6 @@ struct EditProfileView: View {
                             PopperSecureField(placeholder: "New Password", text: $newPassword)
                                 .animation(.easeIn, value: isPasswordDropdownOpen)
                         }
-                            //TODO: Popravi ovo smece
                             if isEditingProfilePicture == true{
 
                                 PopperButton(buttonText: "Take a picture"){}

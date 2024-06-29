@@ -59,7 +59,6 @@ class UploadApi{
     }
     
     func DeletePost(guid:String){
-        //TODO: na backendu je guid bez / popravi
         let urlPath = "/Post/DeletePost/\(guid)";
         conn.deleteRequest(path: urlPath){
             data, response, error in
