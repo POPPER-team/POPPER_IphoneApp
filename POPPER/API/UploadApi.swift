@@ -55,7 +55,6 @@ class UploadApi{
         conn.getRequest(path: urlPath){
             data, response, error in
                 print(response)
-            
         }
     }
     

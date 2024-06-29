@@ -85,29 +85,32 @@ struct EditProfileView: View {
                 
                 Button(action: {
                     isPasswordDropdownOpen.toggle()
+                    isEditingProfilePicture = false
                 }) {
                     Text("CHANGE PASSWORD")
                         .bold()
                         .foregroundColor(.black)
                     Image(systemName: isPasswordDropdownOpen ? "chevron.down" : "chevron.left")
                         .foregroundColor(.black)
+                        .animation(.snappy, value: isPasswordDropdownOpen)
+
                 }.padding()
-                    if isPasswordDropdownOpen {
-                        PopperSecureField(placeholder: "Current Password", text: $currentPassword)
-                            .animation(.easeIn, value: isPasswordDropdownOpen)
-                        
-                        PopperSecureField(placeholder: "New Password", text: $newPassword)
-                            .animation(.easeIn, value: isPasswordDropdownOpen)
-                    }
+                    
                 
             }
             .padding(.top, 25)
             .padding(.horizontal)
                     VStack {
+                        if isPasswordDropdownOpen {
+                            PopperSecureField(placeholder: "Current Password", text: $currentPassword)
+                                .animation(.easeIn, value: isPasswordDropdownOpen)
+                            
+                            PopperSecureField(placeholder: "New Password", text: $newPassword)
+                                .animation(.easeIn, value: isPasswordDropdownOpen)
+                        }
                             //TODO: Popravi ovo smece
                             if isEditingProfilePicture == true{
 
-                                Spacer()
                                 PopperButton(buttonText: "Take a picture"){}
                    
                                 PopperButton(buttonText: "Choose from gallery",onClick: {
@@ -122,7 +125,7 @@ struct EditProfileView: View {
             Spacer()
                 }.sheet(isPresented: $IsChoosingPicture){
                     PopperImagePicker(image:self.$profilePicture);
-                }
+        }
     }
 }
 
