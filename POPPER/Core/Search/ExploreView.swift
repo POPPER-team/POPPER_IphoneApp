@@ -11,6 +11,7 @@ struct ExploreView: View {
     var body: some View {
         NavigationStack {
             ScrollView{
+                UserSearchView()
                 LazyVStack(spacing: 16){
                     ForEach(0..<20){
                         user in
