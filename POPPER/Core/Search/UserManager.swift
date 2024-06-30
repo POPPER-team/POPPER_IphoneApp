@@ -12,7 +12,7 @@ class UserManager: ObservableObject {
 
     func searchUser(username: String) {
         let urlPath = "/UserDetails/SearchUser"
-        
+
         var urlComponents = URLComponents()
         urlComponents.queryItems = [URLQueryItem(name: "searchString", value: username)]
         urlComponents.path = urlPath
@@ -22,7 +22,7 @@ class UserManager: ObservableObject {
             return
         }
 
-        conn.getRequest(path: urlPath) 
+        conn.getRequest(path: urlString)
         { data, response, error in
             if let data = data {
                 do {
