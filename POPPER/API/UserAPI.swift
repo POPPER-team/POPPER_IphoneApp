@@ -10,7 +10,8 @@ import Foundation
 class UserAPI:ObservableObject {
     @Published var user: UserDetailsDto? = nil
     @Published var profilePicure: Data? = nil
-
+    
+    
     func GetYourData() {
         let urlPath = "/UserDetails/GetYourData";
         
@@ -63,7 +64,7 @@ class UserAPI:ObservableObject {
             if let data = data {
                 do {
                     DispatchQueue.main.async {
-                        self.profilePicure = data
+                            self.profilePicure = data
                     }
                 } catch {
                     print("Error decoding JSON: \(error)")

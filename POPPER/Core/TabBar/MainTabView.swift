@@ -39,7 +39,8 @@ struct MainTabView: View {
                 }
                 .tag(3)
             //Dohvati current usera i posalji ovdje
-            CurrentUserProfileView(userGuid: userControl.user?.guid)
+                //  userControl.setUser(userDetails: userControl.user)
+            CurrentUserProfileView(userGuid: userControl.user?.guid, isMyProfile: true)
                 .tabItem {
                     VStack {
                         Image(systemName: selectedTab == 4 ? "person.fill" : "person")

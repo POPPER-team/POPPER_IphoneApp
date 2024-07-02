@@ -16,9 +16,9 @@ struct UserCell: View{
 }
     var body: some View {
         HStack(spacing: 12){
-            if  userApi.profilePicure != nil
+            if  userApi.profilePicure != nil, let pic = UIImage(data: userApi.profilePicure!)
             {
-                Image(uiImage: UIImage(data: userApi.profilePicure!)!)
+                Image(uiImage:pic )
                     .resizable()
                     .frame(width: 48, height: 48)
                     .clipShape(Circle())

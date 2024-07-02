@@ -10,9 +10,12 @@ import SwiftUI
 struct CurrentUserProfileView: View {
     public let userGuid: String?
     @StateObject var userApi = UserAPI();
+    @StateObject var userControl = UserControl();
+    public let isMyProfile: Bool
     
-    init(userGuid: String?){
+    init(userGuid: String?, isMyProfile: Bool = false){
         self.userGuid = userGuid
+        self.isMyProfile = isMyProfile
     }
     
     var body: some View {
@@ -22,7 +25,7 @@ struct CurrentUserProfileView: View {
                     if userApi.user == nil {
                         Text("loading...").padding(20)
                     } else {
-                        ProfileHeaderView(user: userApi.user)
+                        ProfileHeaderView(user: userApi.user, isMyProfile: isMyProfile)
                         PostGridView()
                     }
                     
