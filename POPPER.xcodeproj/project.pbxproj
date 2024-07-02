@@ -50,6 +50,7 @@
 		30EBB1072BAC6DB3009A9586 /* PostGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EBB1062BAC6DB2009A9586 /* PostGridView.swift */; };
 		30EBB10B2BAC7107009A9586 /* UserStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EBB10A2BAC7107009A9586 /* UserStatView.swift */; };
 		30F844052BAB6F2900F4D4CC /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F844042BAB6F2900F4D4CC /* FeedView.swift */; };
+		5C1F8E712C33FA25004E98B5 /* MediaPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F8E702C33FA25004E98B5 /* MediaPicker.swift */; };
 		5C26583B2C1213A000DC9749 /* UploadApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C26583A2C1213A000DC9749 /* UploadApi.swift */; };
 		5C26583D2C12176500DC9749 /* NewPostDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C26583C2C12176500DC9749 /* NewPostDto.swift */; };
 		5C26583F2C12192000DC9749 /* PostDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C26583E2C12192000DC9749 /* PostDto.swift */; };
@@ -110,6 +111,7 @@
 		30EBB1062BAC6DB2009A9586 /* PostGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridView.swift; sourceTree = "<group>"; };
 		30EBB10A2BAC7107009A9586 /* UserStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatView.swift; sourceTree = "<group>"; };
 		30F844042BAB6F2900F4D4CC /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		5C1F8E702C33FA25004E98B5 /* MediaPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediaPicker.swift; path = POPPER/Core/Components/MediaPicker.swift; sourceTree = SOURCE_ROOT; };
 		5C26583A2C1213A000DC9749 /* UploadApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadApi.swift; path = POPPER/API/UploadApi.swift; sourceTree = SOURCE_ROOT; };
 		5C26583C2C12176500DC9749 /* NewPostDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewPostDto.swift; path = POPPER/Dtos/NewPostDto.swift; sourceTree = SOURCE_ROOT; };
 		5C26583E2C12192000DC9749 /* PostDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostDto.swift; path = POPPER/Dtos/PostDto.swift; sourceTree = SOURCE_ROOT; };
@@ -292,6 +294,7 @@
 				3098F09B2BBECE6F004D4D07 /* PopperSecureField.swift */,
 				5CD2BA6C2C07491C0031893D /* PopperCloseButton.swift */,
 				5CC768F22C16DC6F009BFCC6 /* PopperImagePicker.swift */,
+				5C1F8E702C33FA25004E98B5 /* MediaPicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				30A53B802BDFBF2B00C32D95 /* TokensDto.swift in Sources */,
 				30EBB0FD2BAC665E009A9586 /* UserCell.swift in Sources */,
 				5C6ED0D12BE7EBAC00A2204F /* Api.swift in Sources */,
+				5C1F8E712C33FA25004E98B5 /* MediaPicker.swift in Sources */,
 				303E81E72BBD9C6C00ABFE88 /* LoginView.swift in Sources */,
 				30EBB0FF2BAC6A61009A9586 /* NotificationsView.swift in Sources */,
 				309EC1572C07651100B6B4B0 /* UserControl.swift in Sources */,

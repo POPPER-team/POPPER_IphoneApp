@@ -11,6 +11,7 @@ struct UploadFile: View {
     @State private var uploadedMedia:Image?;
     @State private var IsChoosingPicture = false;
     
+    
     var body: some View {
         VStack(alignment: .leading){
             Text("MEDIA")
@@ -25,6 +26,7 @@ struct UploadFile: View {
                 }, img : Image(systemName: "square.and.arrow.up"))
             }
             .sheet(isPresented: $IsChoosingPicture){
+                
                 PopperImagePicker(image:self.$uploadedMedia);
             }
             

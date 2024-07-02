@@ -8,19 +8,13 @@
 import SwiftUI
 
 struct UploadRecipe: View {
-    @State private var recipePart: String = ""
+    @State private var Title: String = ""
+    @State private var Description: String = ""
     let currentStepIndex : Int
     let postApi = api.uploadPost;
     var body: some View {
         ScrollView{
             VStack {
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
                 Spacer() }
             
                 VStack (spacing:10){
@@ -33,14 +27,23 @@ struct UploadRecipe: View {
                                 .fontWeight(.semibold)
                                 .frame(alignment: .leading)
                             Spacer()
-                            
                         }
+                        PopperInputField(placeholder: "Enter title", text: $Title)
                         
-                        PopperInputField(placeholder: "Enter title", text: $recipePart)
+                        HStack() {
+                            
+                            Text("DESCRIPTION")
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                                .frame(alignment: .leading)
+                            Spacer()
+                        }
+                        PopperInputField(placeholder: "#tag #tag", text: $Description)
                         
                         IngredientsField()
                         StepsField()
-                    } 
+                        
+                    }
                     .padding(.top)
                     .animation(.easeIn)
                     VStack(){
