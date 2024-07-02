@@ -16,17 +16,13 @@ struct PopperApp: App {
             if user {
                 MainTabView()
             } else {
-                LoginView(authenticateUser: authUser)
+                LoginView(authenticateUser: {
+                    user.toggle()
+                }
+    )
             }
         }
         
     }
-    
-    public func authUser(userDto: UserDetailsDto) {
-        user = true
-        UserControl.setUser(userDetails: userDto)
-    }
-    
-    
     
 }

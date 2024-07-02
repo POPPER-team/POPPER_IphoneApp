@@ -15,7 +15,6 @@ struct FeedCell: View {
     @State private var isShowingComments = false
     @State private var isSharing = false
     @StateObject private var viewModel = UserViewModel()
-    private var user = UserControl.getUser()
     @State private var likes: Int = Int.random(in: 1..<1000)
     @State private var isLiked = false
     @State private var saves: Int = Int.random(in: 1..<50)
@@ -35,7 +34,7 @@ struct FeedCell: View {
                 
                 HStack(alignment: .bottom) {
                     VStack(alignment: .leading) {
-                        Text(user?.username.lowercased() ?? "\("user" + gen_rnd.formatted())")
+                        Text("\("user" + gen_rnd.formatted())")
                         .fontWeight(.semibold)
                     }
                     .foregroundStyle(.white)

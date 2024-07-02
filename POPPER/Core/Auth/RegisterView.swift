@@ -7,36 +7,36 @@
 
 import SwiftUI
 
-struct RegisterView: View {
-    let authenticateUser: (UserDetailsDto) -> Void
+struct RegisterView :View{
+    let authenticateUser: () -> Void
     @State var firstName = "";
     @State var lastName = "";
     @State var username = ""
     @State var password = ""
     @State var email = ""
     let userAuth = api.userAuth;
-
+    
     var body: some View {
         NavigationStack {
             ZStack {
                 VStack {
                     Image("logo-placeholder")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 300)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 300)
                     Text("POPPER")
-                    .font(.largeTitle)
-                    .bold()
-                    .padding()
+                        .font(.largeTitle)
+                        .bold()
+                        .padding()
                     
                     PopperInputField(placeholder: "First name", text: $firstName)
                     
                     PopperInputField(placeholder: "Last name", text: $lastName)
                     
                     PopperInputField(placeholder: "Email", text: $email)
-
+                    
                     PopperInputField(placeholder: "Username", text: $username)
-                
+                    
                     PopperSecureField(placeholder: "Password", text: $password)
                     
                     HStack{
@@ -65,15 +65,7 @@ struct RegisterView: View {
                                         if let tokens = data{
                                             conn.jwtToken = tokens.jwtToken
                                             conn.refreshToken = tokens.refreshToken
-                                            UserAPI().GetYourData(){user in
-                                                if user != nil{
-                                                    print("User: \(user?.username)")
-                                                    authenticateUser(user!);
-                                                }
-                                                else{
-                                                    print("Error getting user")
-                                                }
-                                            }
+                                            authenticateUser();
                                         }
                                     }
                                 }
@@ -81,7 +73,7 @@ struct RegisterView: View {
                                     print("Failed to register")
                                 }
                             }
-
+                            
                         })
                         .padding(.bottom, 50)
                     }.edgesIgnoringSafeArea(.bottom)
@@ -91,6 +83,7 @@ struct RegisterView: View {
     }
 }
 
+
 #Preview {
-    RegisterView(authenticateUser: {_ in })
+    RegisterView(authenticateUser: {})
 }

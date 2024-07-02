@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    let authenticateUser: (UserDetailsDto) -> Void
+    let authenticateUser: () -> Void
     @State private var username = ""
     @State private var password = ""
     let userAuth = api.userAuth;
@@ -47,17 +47,7 @@ struct LoginView: View {
                                     if let tokens = data{
                                         conn.jwtToken = tokens.jwtToken
                                         conn.refreshToken = tokens.refreshToken
-                                        //TODO: get user, set user, move to feed
-                                        UserAPI().GetYourData(){user in
-                                            if user != nil{
-                                                print("User: \(user?.username)")
-                                                authenticateUser(user!);
-                                            }
-                                            else{
-                                                print("Error getting user")
-                                            }
-                                        }
-                                        //NavigationLink(destination: FeedView())
+                                        authenticateUser();
                                     }
                                     else{
                                         print("Error logging in")
@@ -74,5 +64,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView(authenticateUser: {_ in })
+    LoginView(authenticateUser: {})
 }

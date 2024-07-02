@@ -10,8 +10,8 @@ import SwiftUI
 struct UserCell: View{
 
 @State private var user:UserDto;
-//var onTap: (UserDto) -> Void
-init( User:UserDto){
+
+    init( User:UserDto){
     self.user = User
 }
     var body: some View {

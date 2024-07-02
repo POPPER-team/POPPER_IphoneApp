@@ -9,9 +9,13 @@ import SwiftUI
 
 struct ProfileHeaderView: View {
     @State private var isEditingProfile = false
-    //Izvuci usera van
-    public let userGuid: String
-    @State private var user: UserDetailsDto?
+    private var user: UserDetailsDto?
+    
+    init(user: UserDetailsDto?){
+        self.user = user as UserDetailsDto?
+        
+    }
+    
     var gen_rnd = Int.random(in: 1..<1000)
     var body: some View {
         VStack(spacing: 16){
@@ -21,7 +25,7 @@ struct ProfileHeaderView: View {
                     .frame(width: 80, height: 80)
                     .foregroundStyle(Color(.systemGray))
                 
-                Text(user?.username.lowercased() ?? "\("user" + gen_rnd.formatted())")
+                Text(user?.username ?? "\("user" + gen_rnd.formatted())")
                     .font(.subheadline)
                     .fontWeight(.semibold)
             }
@@ -46,6 +50,6 @@ struct ProfileHeaderView: View {
 }
 
 #Preview {
-    ProfileHeaderView(userGuid: "1")
+    ProfileHeaderView(user: nil)
 }
 
