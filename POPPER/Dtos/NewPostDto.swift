@@ -7,9 +7,9 @@
 
 import Foundation
 
-class NewPostDto : Codable{
-var Title:String;
-var Description:String;
-var Ingridients:[String];
-var Steps:[String];
+struct NewPostDto : Codable{
+public var Title:String;
+public var Description:String;
+public var Ingridients:[String];
+public var Steps:[String];
 }

@@ -11,6 +11,8 @@ struct UploadRecipe: View {
     @State private var Title: String = ""
     @State private var Description: String = ""
     @State private var Ingredients: String = ""
+    @State private var Steps: String = ""
+    
     let currentStepIndex : Int
     let postApi = api.uploadPost;
     var body: some View {
@@ -42,7 +44,7 @@ struct UploadRecipe: View {
                         PopperInputField(placeholder: "#tag #tag", text: $Description)
                         
                         IngredientsField(recipePart : $Ingredients)
-                        StepsField()
+                        StepsField(recipePart: $Steps)
                         
                     }
                     .padding(.top)
@@ -50,7 +52,16 @@ struct UploadRecipe: View {
                     VStack(){
                         UploadFile()
                         PopperButton(buttonText: "PREVIEW AND UPLOAD", onClick: {
-                            api.uploadPost.GetPost(guid: "123"){_ in 
+                            
+                            let data:NewPostDto = NewPostDto(
+                                Title : Title, Description : Description,
+                                Ingridients : Ingredients.components(separatedBy: "\n"),
+                                Steps : Steps.components(separatedBy: "\n")
+                            )
+                            
+                            print(data);
+                            
+                            api.uploadPost.GetPost(guid: "123"){_ in
                                 print ("Bokic")
                             }
                         })

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StepsField: View {
-    @State private var recipePart: String = ""
+    @Binding public var recipePart: String
     @State private var selected = false
     @State private var fieldHeight = 50
     let stepPageCounter : Int = 4
@@ -50,6 +50,16 @@ struct StepsField: View {
         }
     }
 
-#Preview{
-    StepsField()
+struct stppreviewTest: View{
+    @State private var stp: String = "";
+
+    var body: some View{
+        IngredientsField(recipePart: $stp)
+        Text(stp)
+    }
 }
+
+#Preview {
+    stppreviewTest();
+}
+
