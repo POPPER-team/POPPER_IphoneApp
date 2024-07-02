@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct IngredientsField: View {
-    @State private var recipePart: String = ""
+    @Binding public var recipePart: String
     @State private var selected = false
     @State private var fieldHeight = 50
     
@@ -49,6 +49,15 @@ struct IngredientsField: View {
     }
 }
 
+struct previewTest: View{
+    @State private var ing: String = "";
+
+    var body: some View{
+        IngredientsField(recipePart: $ing)
+        Text(ing)
+    }
+}
+
 #Preview {
-    IngredientsField()
+    previewTest();
 }

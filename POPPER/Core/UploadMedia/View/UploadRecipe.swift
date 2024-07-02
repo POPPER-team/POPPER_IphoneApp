@@ -10,6 +10,7 @@ import SwiftUI
 struct UploadRecipe: View {
     @State private var Title: String = ""
     @State private var Description: String = ""
+    @State private var Ingredients: String = ""
     let currentStepIndex : Int
     let postApi = api.uploadPost;
     var body: some View {
@@ -40,7 +41,7 @@ struct UploadRecipe: View {
                         }
                         PopperInputField(placeholder: "#tag #tag", text: $Description)
                         
-                        IngredientsField()
+                        IngredientsField(recipePart : $Ingredients)
                         StepsField()
                         
                     }
