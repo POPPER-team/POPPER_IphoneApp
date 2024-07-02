@@ -7,9 +7,13 @@
 
 import SwiftUI
 
-struct UserCell: View {
-    var gen_rnd = Int.random(in: 1..<1000)
-    private var user = UserControl.getUser()
+struct UserCell: View{
+
+@State private var user:UserDto;
+
+init( User:UserDto ){
+    self.user = User
+}
     var body: some View {
         HStack(spacing: 12){
             Image(systemName: "person.circle.fill")
@@ -18,11 +22,11 @@ struct UserCell: View {
                 .foregroundStyle(Color(.systemGray))
             
             VStack(alignment: .leading){
-                Text(user?.username.lowercased() ?? "\("user" + gen_rnd.formatted())")
+                Text(user.username)
+                    .font(.headline)
+                Text(user.firstName + " " + user.lastName)
                     .font(.subheadline)
-                    .fontWeight(.semibold)
-                Text(user?.username.lowercased() ?? "\("user" + gen_rnd.formatted())")
-                    .font(.footnote)
+                    .foregroundStyle(.secondary)
             }
             Spacer()
         }
@@ -30,5 +34,15 @@ struct UserCell: View {
 }
 
 #Preview {
-    UserCell()
+    UserCell(
+        User:
+            UserDto(
+                username: "user1",
+                guid: UUID().uuidString,
+                email: "test.test@test.test",
+                firstName: "John",
+                lastName: "Doe"
+            )
+        
+    )
 }

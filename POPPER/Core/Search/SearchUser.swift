@@ -13,22 +13,16 @@ struct UserSearchView: View {
     @State private var searchText = ""
 
     var body: some View {
-        VStack {
+        LazyVStack {
             TextField("Search by username", text: $searchText, onCommit: {
                 userManager.searchUser(username: searchText)
             })
             .padding()
             .textFieldStyle(RoundedBorderTextFieldStyle())
-
-            //List(userManager.users) { user in
-                //VStack(alignment: .leading) {
-                    //Text(user.username).font(.headline)
-                //}
-            //}
             
             ForEach(userManager.users, id: \.guid) { user in
                 VStack(alignment: .leading) {
-                    Text(user.username).font(.headline)
+                    UserCell(User: user)
                 }
             }
         }

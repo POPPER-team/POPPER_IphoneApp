@@ -12,13 +12,6 @@ struct ExploreView: View {
         NavigationStack {
             ScrollView{
                 UserSearchView()
-                LazyVStack(spacing: 16){
-                    ForEach(0..<20){
-                        user in
-                        UserCell()
-                            .padding(.horizontal)
-                    }
-                }
             }
             .navigationTitle("Explore")
             .navigationBarTitleDisplayMode(.inline)
