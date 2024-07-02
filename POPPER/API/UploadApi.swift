@@ -31,7 +31,7 @@
 
 
 import Foundation
-class UploadApi{
+class UploadApi :ObservableObject{
     
     func CreateNewPost(newPost:NewPostDto){
         let urlPath = "/Post/CreatePost";
@@ -55,12 +55,10 @@ class UploadApi{
         conn.getRequest(path: urlPath){
             data, response, error in
                 print(response)
-            
         }
     }
     
     func DeletePost(guid:String){
-        //TODO: na backendu je guid bez / popravi
         let urlPath = "/Post/DeletePost/\(guid)";
         conn.deleteRequest(path: urlPath){
             data, response, error in

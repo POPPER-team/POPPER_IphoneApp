@@ -77,7 +77,6 @@ struct PopperImagePicker: UIViewControllerRepresentable {
                                 context: UIViewControllerRepresentableContext<PopperImagePicker>) {
 
     }
-
 }
 
 

@@ -8,42 +8,32 @@
 import SwiftUI
 
 struct UploadFile: View {
+    @State private var uploadedMedia:Image?;
+    @State private var IsChoosingPicture = false;
+    
+    
     var body: some View {
-        VStack(spacing : 16){
-            HStack(alignment: .center){
-                Spacer()
-                Text("VIDEO")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .bold()
-                Spacer()
-                Text("upload video")
-                    .font(.headline)
-                Spacer()
-                Image(systemName: "square.and.arrow.up")
-                    .resizable()
-                    .frame(width: 25, height: 30)
-                Spacer()
+        VStack(alignment: .leading){
+            Text("MEDIA")
+                .font(.title2)
+                .fontWeight(.semibold)
+            
+            
+            VStack{
+                PopperButton(buttonText: "Upload video / photo",onClick: {
+                    
+                    IsChoosingPicture.toggle()
+                }, img : Image(systemName: "square.and.arrow.up"))
             }
-            HStack(alignment: .center){
-                Spacer()
-                Text("PHOTO")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                    .bold()
-                Spacer()
-                Text("upload photo")
-                    .font(.headline)
-                Spacer()
-                Image(systemName: "square.and.arrow.up")
-                    .resizable()
-                    .frame(width: 25, height: 30)
-                Spacer()
+            .sheet(isPresented: $IsChoosingPicture){
+                
+                PopperImagePicker(image:self.$uploadedMedia);
             }
+            
         }
     }
 }
 
-#Preview {
-    UploadFile()
-}
+    #Preview {
+        UploadFile()
+    }
