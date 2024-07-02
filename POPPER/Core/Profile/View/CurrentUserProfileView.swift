@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct CurrentUserProfileView: View {
-    //primit usera
+    public let userGuid: String
     var body: some View {
         NavigationStack{
             ScrollView{
                 VStack(spacing: 2){
                     //Salji usera
-                    ProfileHeaderView()
+                    ProfileHeaderView(userGuid: userGuid)
                     PostGridView()
                 }
                 .padding(.top)
@@ -26,5 +26,5 @@ struct CurrentUserProfileView: View {
 }
 
 #Preview {
-    CurrentUserProfileView()
+    CurrentUserProfileView(userGuid: "2123")
 }

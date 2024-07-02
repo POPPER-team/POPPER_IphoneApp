@@ -10,10 +10,9 @@ import SwiftUI
 struct UserCell: View{
 
 @State private var user:UserDto;
-var onTap: (UserDto) -> Void
-init( User:UserDto, onTap: @escaping (UserDto) -> Void){
+//var onTap: (UserDto) -> Void
+init( User:UserDto){
     self.user = User
-    self.onTap = onTap
 }
     var body: some View {
         HStack(spacing: 12){
@@ -30,8 +29,6 @@ init( User:UserDto, onTap: @escaping (UserDto) -> Void){
                     .foregroundStyle(.secondary)
             }
             Spacer()
-        }.onTapGesture {
-            onTap(user)
         }
     }
 }
@@ -44,9 +41,6 @@ init( User:UserDto, onTap: @escaping (UserDto) -> Void){
                 email: "test.test@test.test",
                 firstName: "John",
                 lastName: "Doe"
-            ),
-            onTap: { user in
-                   print("Selected user: \(user.username)")
-               }
+            )
     )
 }

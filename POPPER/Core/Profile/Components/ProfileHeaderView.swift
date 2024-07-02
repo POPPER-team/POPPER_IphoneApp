@@ -10,7 +10,8 @@ import SwiftUI
 struct ProfileHeaderView: View {
     @State private var isEditingProfile = false
     //Izvuci usera van
-    private var user = UserControl.getUser()
+    public let userGuid: String
+    @State private var user: UserDetailsDto?
     var gen_rnd = Int.random(in: 1..<1000)
     var body: some View {
         VStack(spacing: 16){
@@ -45,6 +46,6 @@ struct ProfileHeaderView: View {
 }
 
 #Preview {
-    ProfileHeaderView()
+    ProfileHeaderView(userGuid: "1")
 }
 
