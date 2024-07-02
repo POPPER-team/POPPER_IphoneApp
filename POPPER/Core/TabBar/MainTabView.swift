@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MainTabView: View {
     @State private var selectedTab = 0
-    
+    @StateObject var userControl = UserControl()
     var body: some View {
         TabView(selection: $selectedTab){
             FeedView()
@@ -38,8 +38,9 @@ struct MainTabView: View {
                     }
                 }
                 .tag(3)
-            
-            CurrentUserProfileView()
+            //Dohvati current usera i posalji ovdje
+                //  userControl.setUser(userDetails: userControl.user)
+            CurrentUserProfileView(userGuid: userControl.user?.guid, isMyProfile: true)
                 .tabItem {
                     VStack {
                         Image(systemName: selectedTab == 4 ? "person.fill" : "person")

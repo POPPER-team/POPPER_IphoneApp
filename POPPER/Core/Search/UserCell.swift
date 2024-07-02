@@ -7,28 +7,50 @@
 
 import SwiftUI
 
-struct UserCell: View {
-    var gen_rnd = Int.random(in: 1..<1000)
-    private var user = UserControl.getUser()
+struct UserCell: View{
+
+@State private var user:UserDto;
+@StateObject var userApi = UserAPI();
+    init( User:UserDto){
+    self.user = User
+}
     var body: some View {
         HStack(spacing: 12){
-            Image(systemName: "person.circle.fill")
-                .resizable()
-                .frame(width: 48, height: 48)
-                .foregroundStyle(Color(.systemGray))
-            
+            if  userApi.profilePicure != nil, let pic = UIImage(data: userApi.profilePicure!)
+            {
+                Image(uiImage:pic )
+                    .resizable()
+                    .frame(width: 48, height: 48)
+                    .clipShape(Circle())
+            }
+            else{
+                Image(systemName: "person.circle.fill")
+                    .resizable()
+                    .frame(width: 48, height: 48)
+                    .foregroundStyle(Color(.systemGray))
+            }
             VStack(alignment: .leading){
-                Text(user?.username.lowercased() ?? "\("user" + gen_rnd.formatted())")
+                Text(user.username)
+                    .font(.headline)
+                Text(user.firstName + " " + user.lastName)
                     .font(.subheadline)
-                    .fontWeight(.semibold)
-                Text(user?.username.lowercased() ?? "\("user" + gen_rnd.formatted())")
-                    .font(.footnote)
+                    .foregroundStyle(.secondary)
             }
             Spacer()
+        }.onAppear(){
+            userApi.GetProfilePicture(UserGuid: user.guid)
         }
     }
 }
-
 #Preview {
-    UserCell()
+    UserCell(
+        User:
+            UserDto(
+                username: "test",
+                guid: UUID().uuidString,
+                email: "test.test@test.test",
+                firstName: "John",
+                lastName: "Doe"
+            )
+    )
 }

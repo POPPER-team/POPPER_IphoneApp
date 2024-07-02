@@ -10,7 +10,7 @@ import Foundation
 struct UserDto: Codable {
     let username: String
     let guid: String
-    let email: String
+    let email: String?
     let firstName: String
     let lastName: String
 }

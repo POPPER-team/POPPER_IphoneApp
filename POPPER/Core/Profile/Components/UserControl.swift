@@ -7,18 +7,11 @@
 
 import Foundation
 
-struct UserControl {
-    private static var user: UserDetailsDto?
+class UserControl : ObservableObject{
     
-    public static func setUser(userDetails: UserDetailsDto) {
-        user = userDetails
-    }
+    @Published public var user: UserDetailsDto? = nil
     
-    public static func getUser() -> UserDetailsDto? {
-        return user
-    }
-    
-    public static func clearUser() {
-        user = nil
+    public func setUser(userDetails: UserDetailsDto) {
+        self.user = userDetails
     }
 }
