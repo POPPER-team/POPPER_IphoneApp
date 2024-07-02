@@ -13,10 +13,13 @@ struct ProfileHeaderView: View {
     @StateObject var userApi = UserAPI();
     @StateObject var userControl = UserControl()
     public let isMyProfile: Bool;
+    @Binding var userBool: Bool
 
-    init(user: UserDetailsDto?, isMyProfile: Bool = false){
+
+    init(user: UserDetailsDto?, isMyProfile: Bool = false, userBool: Binding<Bool>? = .constant(false)){
         self.user = user as UserDetailsDto?
     self.isMyProfile = isMyProfile
+    self._userBool = userBool ?? .constant(false)
         
     }
     
@@ -58,7 +61,7 @@ struct ProfileHeaderView: View {
                     isEditingProfile.toggle()
                 })
                 .sheet(isPresented: $isEditingProfile, content: {
-                    EditProfileView(user: user!)
+                    EditProfileView(user: user!,userBool: $userBool)
                 })
             }
             else

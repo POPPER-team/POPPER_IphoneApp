@@ -8,21 +8,19 @@
 import SwiftUI
 
 @main
-struct PopperApp: App {
+struct PopperApp: App{
     @State private var user: Bool = false
     var body: some Scene {
-
         WindowGroup {
             if user {
-                MainTabView()
+                MainTabView(userBool: $user)
             } else {
                 LoginView(authenticateUser: {
                     user.toggle()
                 }
-    )
+                )
             }
         }
         
     }
-    
 }
