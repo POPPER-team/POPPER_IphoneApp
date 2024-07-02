@@ -10,17 +10,25 @@ import SwiftUI
 struct UserCell: View{
 
 @State private var user:UserDto;
-
+@StateObject var userApi = UserAPI();
     init( User:UserDto){
     self.user = User
 }
     var body: some View {
         HStack(spacing: 12){
-            Image(systemName: "person.circle.fill")
-                .resizable()
-                .frame(width: 48, height: 48)
-                .foregroundStyle(Color(.systemGray))
-            
+            if  userApi.profilePicure != nil
+            {
+                Image(uiImage: UIImage(data: userApi.profilePicure!)!)
+                    .resizable()
+                    .frame(width: 48, height: 48)
+                    .clipShape(Circle())
+            }
+            else{
+                Image(systemName: "person.circle.fill")
+                    .resizable()
+                    .frame(width: 48, height: 48)
+                    .foregroundStyle(Color(.systemGray))
+            }
             VStack(alignment: .leading){
                 Text(user.username)
                     .font(.headline)
@@ -29,6 +37,8 @@ struct UserCell: View{
                     .foregroundStyle(.secondary)
             }
             Spacer()
+        }.onAppear(){
+            userApi.GetProfilePicture(UserGuid: user.guid)
         }
     }
 }
