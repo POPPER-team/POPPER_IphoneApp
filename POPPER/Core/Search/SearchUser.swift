@@ -14,26 +14,32 @@ struct UserSearchView: View {
     
     var body: some View {
         NavigationView {
-            LazyVStack{
+            VStack {
                 TextField("Search by username", text: $searchText, onCommit: {
                     userManager.searchUser(username: searchText)
                 })
                 .padding()
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 
-                ForEach(userManager.users, id: \.guid) { user in
-                    VStack(alignment: .leading) {
-                        NavigationLink(destination: CurrentUserProfileView(userGuid: user.guid)) {
-                            UserCell(User: user)
+                ScrollView {
+                    LazyVStack {
+                        ForEach(userManager.users, id: \.guid) { user in
+                            VStack(alignment: .leading) {
+                                NavigationLink(destination: CurrentUserProfileView(userGuid: user.guid)) {
+                                    UserCell(User: user)
+                                }
+                            }
+                            .padding()
                         }
                     }
-                    .padding()
-                }}
+                }
+            }
         }
-    }}
-
-struct UserSearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserSearchView()
+    }
+    
+    struct UserSearchView_Previews: PreviewProvider {
+        static var previews: some View {
+            UserSearchView()
+        }
     }
 }
