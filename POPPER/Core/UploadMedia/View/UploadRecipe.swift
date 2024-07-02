@@ -12,6 +12,7 @@ struct UploadRecipe: View {
     @State private var Description: String = ""
     @State private var Ingredients: String = ""
     @State private var Steps: String = ""
+    @StateObject var PostApi = UploadApi()
     
     let currentStepIndex : Int
     let postApi = api.uploadPost;
@@ -61,9 +62,7 @@ struct UploadRecipe: View {
                             
                             print(data);
                             
-                            api.uploadPost.GetPost(guid: "123"){_ in
-                                print ("Bokic")
-                            }
+                            postApi.CreateNewPost(newPost: data)
                         })
                     }
                     .animation(.easeIn)

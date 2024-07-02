@@ -31,7 +31,7 @@
 
 
 import Foundation
-class UploadApi{
+class UploadApi :ObservableObject{
     
     func CreateNewPost(newPost:NewPostDto){
         let urlPath = "/Post/CreatePost";
