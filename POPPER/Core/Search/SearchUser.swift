@@ -22,7 +22,7 @@ struct UserSearchView: View {
             
             ForEach(userManager.users, id: \.guid) { user in
                 VStack(alignment: .leading) {
-                    UserCell(User: user)
+                    //UserCell(User: user, onTap: {})
                 }
             }
         }

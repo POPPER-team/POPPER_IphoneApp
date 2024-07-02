@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileHeaderView: View {
     @State private var isEditingProfile = false
+    //Izvuci usera van
     private var user = UserControl.getUser()
     var gen_rnd = Int.random(in: 1..<1000)
     var body: some View {

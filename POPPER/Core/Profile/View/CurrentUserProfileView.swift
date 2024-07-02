@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct CurrentUserProfileView: View {
+    //primit usera
     var body: some View {
         NavigationStack{
             ScrollView{
                 VStack(spacing: 2){
+                    //Salji usera
                     ProfileHeaderView()
-                    
                     PostGridView()
                 }
                 .padding(.top)

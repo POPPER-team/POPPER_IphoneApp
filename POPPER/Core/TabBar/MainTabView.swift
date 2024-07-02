@@ -38,7 +38,7 @@ struct MainTabView: View {
                     }
                 }
                 .tag(3)
-            
+            //Dohvati current usera i posalji ovdje
             CurrentUserProfileView()
                 .tabItem {
                     VStack {
