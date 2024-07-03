@@ -10,7 +10,7 @@ import Foundation
 class UserAPI:ObservableObject {
     @Published var user: UserDetailsDto? = nil
     @Published var profilePicure: Data? = nil
-    
+    @Published var followers: [UserDto]? = nil
     
     func GetYourData() {
         let urlPath = "/UserDetails/GetYourData";
@@ -77,17 +77,88 @@ class UserAPI:ObservableObject {
         }
     }
     
-    func uploadProfileImage(imageData: DataField) {
-        let urlPath = "/UserDetails/UploadProfilePicture";
+    func FollowUser(FollowingGuid: String) {
+        let urlPath = "/Follow/FollowUser/\(FollowingGuid)";
         
-        conn.putRequest(path: urlPath, field:imageData){
+        conn.postRequest(path: urlPath, body: nil) {
             data, response, error in
             if let data = data {
                 do {
-                    print("success");
-                }}
+                    let user = try JSONDecoder().decode(UserDetailsDto.self, from: data)
+                    DispatchQueue.main.async {
+                        self.user = user
+                    }
+                } catch {
+                    print("Error decoding JSON: \(error)")
+                }
+
+            }
             else{
                 print(error)
             }
         }
-    }}
+    }
+    
+    func UnFollowUser(FollowingGuid: String) {
+        let urlPath = "/Follow/UnFollowUser/\(FollowingGuid)";
+        
+        conn.deleteRequest(path: urlPath) {
+            data, response, error in
+            if let data = data {
+                do {
+                    let user = try JSONDecoder().decode(UserDetailsDto.self, from: data)
+                    DispatchQueue.main.async {
+                        self.user = user
+                    }
+                } catch {
+                    print("Error decoding JSON: \(error)")
+                }
+
+            }
+            else{
+                print(error)
+            }
+        }
+    }
+    
+    func GetFollowers() {
+        let urlPath = "/Follow/GetFollowers";
+        
+        conn.getRequest(path: urlPath) {
+            data, response, error in
+            if let data = data {
+                do {
+                    let followers = try JSONDecoder().decode([UserDto].self, from: data)
+                    DispatchQueue.main.async {
+                        self.followers = followers
+                    }
+                } catch {
+                    print("Error decoding JSON: \(error)")
+                }
+
+            }
+            else{
+                print(error)
+            }
+        }
+    }
+    
+    func GetFollowing() {
+        let urlPath = "/Follow/GetFollowing";
+        
+        conn.getRequest(path: urlPath) {
+            data, response, error in
+            if let data = data {
+                do {
+                    let user = try JSONDecoder().decode(UserDetailsDto.self, from: data)
+                    DispatchQueue.main.async {
+                        self.user = user
+                    }
+                } catch {
+                    print("Error decoding JSON: \(error)")
+                }
+
+            }
+
+    }
+}

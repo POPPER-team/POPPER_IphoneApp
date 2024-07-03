@@ -12,18 +12,21 @@ struct ProfileHeaderView: View {
     private var user: UserDetailsDto?
     @StateObject var userApi = UserAPI();
     @StateObject var userControl = UserControl()
-    public let isMyProfile: Bool;
-    @Binding var userBool: Bool
-
-
-    init(user: UserDetailsDto?, isMyProfile: Bool = false, userBool: Binding<Bool>? = .constant(false)){
+    @State public var isMyProfile: Bool;
+    @Binding var userBool: Bool;
+    @State private var isFollowing: Bool
+    
+    init(user: UserDetailsDto?, isMyProfile: Bool = false, userBool: Binding<Bool>? = .constant(false), isFollowing: Bool = false){
         self.user = user as UserDetailsDto?
-    self.isMyProfile = isMyProfile
-    self._userBool = userBool ?? .constant(false)
+        self.isMyProfile = isMyProfile
+        self._userBool = userBool ?? .constant(false)
+        self.isFollowing = isFollowing
         
     }
     
     var gen_rnd = Int.random(in: 1..<1000)
+    
+    
     var body: some View {
         VStack(spacing: 16){
             VStack(spacing: 8){
@@ -37,7 +40,7 @@ struct ProfileHeaderView: View {
                 else{
                     Image(systemName: "person.circle.fill")
                         .resizable()
-                        .frame(width: 48, height: 48)
+                        .frame(width: 72, height: 72)
                         .foregroundStyle(Color(.systemGray))
                 }
                 
@@ -46,12 +49,13 @@ struct ProfileHeaderView: View {
                     .fontWeight(.semibold)
             }.onAppear(){
                 userApi.GetProfilePicture(UserGuid: user?.guid ?? "")
+                userApi.GetFollowers()
             }
             
             HStack(spacing: 16){
                 //TODO: Add real data
-                UserStatView(value: Int.random(in: 100..<150), title: "Following")
-                UserStatView(value: Int.random(in: 150..<300), title: "Followers")
+                UserStatView(value: user?.following ?? gen_rnd, title: "Following")
+                UserStatView(value: user?.followers ?? gen_rnd, title: "Followers")
                 UserStatView(value: Int.random(in: 1500..<6500), title: "Likes")
                 
             }
@@ -66,13 +70,24 @@ struct ProfileHeaderView: View {
             }
             else
             {
-                PopperButton(buttonText: "Follow", onClick: {
-                    print("Followed")
-                })
+                
+                if (isFollowing) {
+                    PopperButton(buttonText: "Unfollow", onClick: {
+                        userApi.UnFollowUser(FollowingGuid: user?.guid ?? "")
+                        isFollowing = false;
+                    }).background(Color.red)
+                        .cornerRadius(20)
+                }
+                else{
+                    PopperButton(buttonText: "Follow", onClick: {
+                        userApi.FollowUser(FollowingGuid: user?.guid ?? "")
+                        isFollowing = true;
+                    })
+                }
             }
-            
-            Divider()
         }
+        
+        Divider()
     }
 }
 

@@ -112,7 +112,7 @@ struct FeedCell: View {
                                             .bold()
                                     }
                                 }
-                        Button {
+                        /*Button {
                             isSharing.toggle()
                         } label: {
                             VStack {
@@ -129,7 +129,7 @@ struct FeedCell: View {
                         }.sheet(isPresented: $isSharing) {
                             //SearchView(viewModel: viewModel)
                             UserSearchView()
-                        }
+                        }*/
                     }
                     .padding(.bottom, 60)
                 }

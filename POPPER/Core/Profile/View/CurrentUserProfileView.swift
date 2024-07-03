@@ -13,12 +13,14 @@ struct CurrentUserProfileView: View {
     @StateObject var userControl = UserControl();
     public let isMyProfile: Bool    
     @Binding var userBool: Bool
+    @State private var isFollowing: Bool
     
     
-    init(userGuid: String?, isMyProfile: Bool = false, userBool: Binding<Bool>? = .constant(false)){
+    init(userGuid: String?, isMyProfile: Bool = false, userBool: Binding<Bool>? = .constant(false), isFollowing: Bool = false){
         self.userGuid = userGuid
         self.isMyProfile = isMyProfile
         self._userBool = userBool ?? .constant(false)
+        self.isFollowing = isFollowing
     }
     
     var body: some View {
@@ -28,7 +30,7 @@ struct CurrentUserProfileView: View {
                     if userApi.user == nil {
                         Text("loading...").padding(20)
                     } else {
-                        ProfileHeaderView(user: userApi.user, isMyProfile: isMyProfile, userBool: $userBool)
+                        ProfileHeaderView(user: userApi.user, isMyProfile: isMyProfile, userBool: $userBool, isFollowing: isFollowing)
                         PostGridView()
                     }
                     
