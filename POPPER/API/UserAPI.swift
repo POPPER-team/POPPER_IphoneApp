@@ -11,6 +11,7 @@ class UserAPI:ObservableObject {
     @Published var user: UserDetailsDto? = nil
     @Published var profilePicure: Data? = nil
     @Published var followers: [UserDto]? = nil
+    @Published var likes: Int = 1
     
     func GetYourData() {
         let urlPath = "/UserDetails/GetYourData";
@@ -188,6 +189,27 @@ class UserAPI:ObservableObject {
                 do {
                     print("success");
                 }
+            }
+        }
+    }
+    func likePost(UserGuid: String)
+    {
+        let urlPath = "/PostActions/LikePost/\(UserGuid)";
+        
+        conn.postRequest(path: urlPath, body: nil) {
+            data, response, error in
+            if let data = data {
+                do {
+                    let likes = try JSONDecoder().decode(Int.self, from: data)
+                    DispatchQueue.main.async {
+                        self.likes = likes
+                    }
+                } catch {
+                    print("Error decoding JSON: \(error)")
+                }
+            }
+            else{
+                print(error)
             }
         }
     }
