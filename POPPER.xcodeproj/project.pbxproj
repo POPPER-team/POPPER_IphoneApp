@@ -546,7 +546,6 @@
 				5CD2BA752C0751690031893D /* StepsField.swift in Sources */,
 				304166082BAB67F300AC1081 /* PopperApp.swift in Sources */,
 				302DDADA2BC866D70050AF2A /* PopperLoadingButton.swift in Sources */,
-				30DC9CFB2C0CD33A00A21354 /* SearchView.swift in Sources */,
 				5CD2BA712C074F1B0031893D /* StepIndexSelected.swift in Sources */,
 				30EBB0FB2BAC6642009A9586 /* ExploreView.swift in Sources */,
 				303C24D82C1DA7490091D2B7 /* SearchUser.swift in Sources */,

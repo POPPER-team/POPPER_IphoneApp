@@ -22,12 +22,14 @@ struct EditProfileView: View {
     @State private var newPassword = ""
     @State private var isEditingProfilePicture = false
     @State private var IsChoosingPicture = false
-    
-    init(user: UserDetailsDto) {
+    @Binding var userBool: Bool
+
+    init(user: UserDetailsDto, userBool: Binding<Bool>){
         self.username = user.username
         self.bio = user.status ?? ""
         self.dob = user.dateOfBirth ?? ""
         self.website = user.webLink ?? ""
+        self._userBool = userBool
     };
     
     var body: some View {
@@ -42,7 +44,7 @@ struct EditProfileView: View {
                 }
                 Spacer()
                 
-                Text("Edit Profile")
+                Text("Settings")
                     .bold()
                 
                 Spacer()
@@ -78,10 +80,8 @@ struct EditProfileView: View {
             
             
             VStack(alignment: .leading, spacing: 20) {
+
                 PopperInputField(placeholder: "Name", text: $username)
-                PopperInputField(placeholder: "Bio", text: $bio)
-                PopperInputField(placeholder: "DOB", text: $dob)
-                PopperInputField(placeholder: "Website", text: $website)
                 
                 Button(action: {
                     isPasswordDropdownOpen.toggle()
@@ -95,7 +95,7 @@ struct EditProfileView: View {
                         .animation(.snappy, value: isPasswordDropdownOpen)
 
                 }.padding()
-                    
+              
                 
             }
             .padding(.top, 25)
@@ -117,11 +117,20 @@ struct EditProfileView: View {
                                     IsChoosingPicture.toggle()
                                 })
                             }
+                        
                         }
                         .animation(.easeIn, value: isEditingProfilePicture)
                         .padding()
                     
             Spacer()
+                    PopperButton(buttonText: "Logout", onClick: {
+            
+                        conn.jwtToken = ""
+                        conn.refreshToken = ""
+                        userBool.toggle()
+                        self.presentationMode.wrappedValue.dismiss()
+                    })
+                        
                 }.sheet(isPresented: $IsChoosingPicture){
                     PopperImagePicker(image:self.$profilePicture);
         }
@@ -133,5 +142,5 @@ struct EditProfileView: View {
 
 
 #Preview {
-    EditProfileView(user: UserDetailsDto(username: "Test", guid: "", firstName: "Ime", lastName: "Prezime", created: "12.12.2001", dateOfBirth: "12.12.2001.", status: "dadadadadada", webLink: "www.google.com"))
+    EditProfileView(user: UserDetailsDto(username: "Test", guid: "", firstName: "Ime", lastName: "Prezime", created: "12.12.2001"), userBool: Binding<Bool>.constant(false))
 }

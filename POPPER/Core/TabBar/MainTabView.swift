@@ -3,6 +3,7 @@ import SwiftUI
 struct MainTabView: View {
     @State private var selectedTab = 0
     @StateObject var userControl = UserControl()
+    @Binding var userBool: Bool
     var body: some View {
         TabView(selection: $selectedTab){
             FeedView()
@@ -40,7 +41,7 @@ struct MainTabView: View {
                 .tag(3)
             //Dohvati current usera i posalji ovdje
                 //  userControl.setUser(userDetails: userControl.user)
-            CurrentUserProfileView(userGuid: userControl.user?.guid, isMyProfile: true)
+            CurrentUserProfileView(userGuid: userControl.user?.guid, isMyProfile: true, userBool: $userBool)
                 .tabItem {
                     VStack {
                         Image(systemName: selectedTab == 4 ? "person.fill" : "person")
@@ -56,6 +57,6 @@ struct MainTabView: View {
 
 struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabView()
+        MainTabView(userBool: .constant(true))
     }
 }
