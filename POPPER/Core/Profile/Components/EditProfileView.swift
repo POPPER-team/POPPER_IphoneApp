@@ -44,7 +44,7 @@ struct EditProfileView: View {
                 }
                 Spacer()
                 
-                Text("Edit Profile")
+                Text("Settings")
                     .bold()
                 
                 Spacer()
@@ -80,6 +80,7 @@ struct EditProfileView: View {
             
             
             VStack(alignment: .leading, spacing: 20) {
+
                 PopperInputField(placeholder: "Name", text: $username)
                 
                 Button(action: {
@@ -94,15 +95,7 @@ struct EditProfileView: View {
                         .animation(.snappy, value: isPasswordDropdownOpen)
 
                 }.padding()
-                Spacer()
-                PopperButton(buttonText: "Logout", onClick: {
-        
-                    conn.jwtToken = ""
-                    conn.refreshToken = ""
-                    userBool.toggle()
-                    self.presentationMode.wrappedValue.dismiss()
-                })
-                    
+              
                 
             }
             .padding(.top, 25)
@@ -130,6 +123,14 @@ struct EditProfileView: View {
                         .padding()
                     
             Spacer()
+                    PopperButton(buttonText: "Logout", onClick: {
+            
+                        conn.jwtToken = ""
+                        conn.refreshToken = ""
+                        userBool.toggle()
+                        self.presentationMode.wrappedValue.dismiss()
+                    })
+                        
                 }.sheet(isPresented: $IsChoosingPicture){
                     PopperImagePicker(image:self.$profilePicture);
         }
