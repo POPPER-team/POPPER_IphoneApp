@@ -12,20 +12,21 @@ struct ProfileHeaderView: View {
     private var user: UserDetailsDto?
     @StateObject var userApi = UserAPI();
     @StateObject var userControl = UserControl()
-    public let isMyProfile: Bool;
+    @State public var isMyProfile: Bool;
     @Binding var userBool: Bool;
-    @State private var isFollowing = false
+    @State private var isFollowing: Bool
     
-    
-    
-    init(user: UserDetailsDto?, isMyProfile: Bool = false, userBool: Binding<Bool>? = .constant(false)){
+    init(user: UserDetailsDto?, isMyProfile: Bool = false, userBool: Binding<Bool>? = .constant(false), isFollowing: Bool = false){
         self.user = user as UserDetailsDto?
         self.isMyProfile = isMyProfile
         self._userBool = userBool ?? .constant(false)
+        self.isFollowing = isFollowing
         
     }
     
     var gen_rnd = Int.random(in: 1..<1000)
+    
+    
     var body: some View {
         VStack(spacing: 16){
             VStack(spacing: 8){
@@ -48,12 +49,13 @@ struct ProfileHeaderView: View {
                     .fontWeight(.semibold)
             }.onAppear(){
                 userApi.GetProfilePicture(UserGuid: user?.guid ?? "")
+                userApi.GetFollowers()
             }
             
             HStack(spacing: 16){
                 //TODO: Add real data
-                UserStatView(value: Int.random(in: 100..<150), title: "Following")
-                UserStatView(value: Int.random(in: 150..<300), title: "Followers")
+                UserStatView(value: user?.following ?? gen_rnd, title: "Following")
+                UserStatView(value: user?.followers ?? gen_rnd, title: "Followers")
                 UserStatView(value: Int.random(in: 1500..<6500), title: "Likes")
                 
             }
@@ -69,15 +71,17 @@ struct ProfileHeaderView: View {
             else
             {
                 
-                if isFollowing {
+                if (isFollowing) {
                     PopperButton(buttonText: "Unfollow", onClick: {
-                        isFollowing.toggle()
+                        userApi.UnFollowUser(FollowingGuid: user?.guid ?? "")
+                        isFollowing = false;
                     }).background(Color.red)
                         .cornerRadius(20)
                 }
                 else{
                     PopperButton(buttonText: "Follow", onClick: {
-                        isFollowing.toggle()
+                        userApi.FollowUser(FollowingGuid: user?.guid ?? "")
+                        isFollowing = true;
                     })
                 }
             }

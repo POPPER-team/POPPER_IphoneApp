@@ -19,5 +19,7 @@ struct UserDetailsDto: Codable {
     var webLink: String?
     var preferredUnits: String?
     var language: String?
+    var following: Int?
+    var followers: Int?
 }
 
