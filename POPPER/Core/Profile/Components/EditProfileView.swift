@@ -72,8 +72,6 @@ struct EditProfileView: View {
                             .cornerRadius(50)
                             .onAppear()
                             {
-                                
-                                
                                 userApi.uploadProfileImage(imageData: DataField(name:"File", data: profilePicture!.scalePreservingAspectRatio(targetSize: CGSize(width: 100,height: 100)) .jpegData(compressionQuality:0.01)!, mimeType:"img/jpg"))
                             }
                     }

@@ -12,7 +12,7 @@ struct UploadRecipe: View {
     @State private var Description: String = ""
     @State private var Ingredients: String = ""
     @State private var Steps: String = ""
-    @State private var Media: UIImage?
+    @State private var media: UIImage?
     @StateObject var postApi = UploadApi()
     
     
@@ -52,7 +52,7 @@ struct UploadRecipe: View {
                     .padding(.top)
                     .animation(.easeIn)
                     VStack(){
-                        UploadFile(uploadedMedia: $Media)
+                        UploadFile(uploadedMedia: $media)
                         PopperButton(buttonText: "PREVIEW AND UPLOAD", onClick: {
                             
                             let data:NewPostDto = NewPostDto(
@@ -67,7 +67,7 @@ struct UploadRecipe: View {
                                     postApi.CreateNewPost(newPost: data)
                                     {
                                         post in
-                                        postApi.UploadMedia(imageData: DataField(name:"File", data: (Media?.jpegData(compressionQuality: 1))!, mimeType: "image/jpg"),guid: post!.guid )
+                                        postApi.UploadMedia(imageData: DataField(name:"File", data: (media?.scalePreservingAspectRatio(targetSize: CGSize(width: 100, height: 100)))!.jpegData(compressionQuality: 0.1)!, mimeType: "img/jpg"),guid: post!.guid )
                                     }
                                 
 

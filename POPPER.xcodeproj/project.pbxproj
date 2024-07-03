@@ -65,7 +65,7 @@
 		5CD2BA752C0751690031893D /* StepsField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2BA742C0751690031893D /* StepsField.swift */; };
 		5CD2BA772C075C9B0031893D /* UploadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2BA762C075C9B0031893D /* UploadFile.swift */; };
 		5CDBEF3D2C15A9E800A93A9C /* FormRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDBEF3C2C15A9E800A93A9C /* FormRequest.swift */; };
-		5CFF36C52C356B9400DF64C2 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFF36C42C356B9400DF64C2 /* File.swift */; };
+		5CFF36C52C356B9400DF64C2 /* ScaleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFF36C42C356B9400DF64C2 /* ScaleExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,7 +127,7 @@
 		5CD2BA742C0751690031893D /* StepsField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StepsField.swift; path = POPPER/Core/Components/StepsField.swift; sourceTree = SOURCE_ROOT; };
 		5CD2BA762C075C9B0031893D /* UploadFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadFile.swift; path = POPPER/Core/Components/UploadFile.swift; sourceTree = SOURCE_ROOT; };
 		5CDBEF3C2C15A9E800A93A9C /* FormRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FormRequest.swift; path = POPPER/API/ApiHelpers/FormRequest.swift; sourceTree = SOURCE_ROOT; };
-		5CFF36C42C356B9400DF64C2 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = File.swift; path = POPPER/API/File.swift; sourceTree = SOURCE_ROOT; };
+		5CFF36C42C356B9400DF64C2 /* ScaleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScaleExtension.swift; path = POPPER/API/ScaleExtension.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,7 +239,7 @@
 			children = (
 				309EC1562C07651100B6B4B0 /* UserControl.swift */,
 				303C24D92C1DA97F0091D2B7 /* UserManager.swift */,
-				5CFF36C42C356B9400DF64C2 /* File.swift */,
+				5CFF36C42C356B9400DF64C2 /* ScaleExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -553,7 +553,7 @@
 				3041662C2BAB69D900AC1081 /* MainTabView.swift in Sources */,
 				309EC1502C0747BD00B6B4B0 /* UserAPI.swift in Sources */,
 				5C760CC22C1F5C1100A147F2 /* IngredientsField.swift in Sources */,
-				5CFF36C52C356B9400DF64C2 /* File.swift in Sources */,
+				5CFF36C52C356B9400DF64C2 /* ScaleExtension.swift in Sources */,
 				30A53B772BDFBAE200C32D95 /* AuthenticationService.swift in Sources */,
 				30EBB1072BAC6DB3009A9586 /* PostGridView.swift in Sources */,
 				5CD2BA6B2C0732630031893D /* tap.swift in Sources */,

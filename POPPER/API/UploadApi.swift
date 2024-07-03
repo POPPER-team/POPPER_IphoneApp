@@ -45,9 +45,7 @@ class UploadApi :ObservableObject{
                     else{
                         print ("Error decoding json")
                     }
-                    
-                    
-                }
+                                    }
                 else{
                     print (error)
                 }
