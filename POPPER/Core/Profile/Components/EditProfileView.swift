@@ -17,12 +17,13 @@ struct EditProfileView: View {
     @State private var dob:String
     @State private var website:String
     @State private var isPasswordDropdownOpen = false
-    @State private var currentPassword = ""
-    @State private var newPassword = ""
     @State private var isEditingProfilePicture = false
     @State private var IsChoosingPicture = false
     @Binding var userBool: Bool
     @ObservedObject var userApi = UserAPI()
+    
+    @State private var currentPassword = ""
+    @State private var newPassword = ""
 
     init(user: UserDetailsDto, userBool: Binding<Bool>){
         self.username = user.username
@@ -110,8 +111,13 @@ struct EditProfileView: View {
                             PopperSecureField(placeholder: "Current Password", text: $currentPassword)
                                 .animation(.easeIn, value: isPasswordDropdownOpen)
                             
+                            
                             PopperSecureField(placeholder: "New Password", text: $newPassword)
                                 .animation(.easeIn, value: isPasswordDropdownOpen)
+                            
+                            PopperButton(buttonText: "Save password", onClick: {
+                                userApi.changePassword(oldPassword: currentPassword, newPassword: newPassword)
+                            })
                         }
                             if isEditingProfilePicture == true{
 
