@@ -45,11 +45,24 @@ class PostApi : ObservableObject{
     
     
     func GetPost(guid : String){
-        
+
     }
     
     func GetPostUsers(guid :String){
-        
+        let path = "/Post/GetUserPosts/\(guid)";
+        conn.getRequest(path:path){
+            data, respons, error in
+            if let data = data {
+                if let post = try? JSONDecoder().decode([PostDto].self, from:data)
+                {
+                    DispatchQueue.main.async {
+                        self.posts = post
+                    }}
+            }
+            else {
+                print ("error decoding json")
+            }
+        }
     }
     
     func GetSavedPosts(guid: String){

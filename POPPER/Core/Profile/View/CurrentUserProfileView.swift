@@ -14,6 +14,7 @@ struct CurrentUserProfileView: View {
     public let isMyProfile: Bool    
     @Binding var userBool: Bool
     @State private var isFollowing: Bool
+    @StateObject var postApi = PostApi()
     
     
     init(userGuid: String?, isMyProfile: Bool = false, userBool: Binding<Bool>? = .constant(false), isFollowing: Bool = false){
@@ -29,11 +30,21 @@ struct CurrentUserProfileView: View {
                 VStack(spacing: 2){
                     if userApi.user == nil {
                         Text("loading...").padding(20)
+
                     } else {
                         ProfileHeaderView(user: userApi.user, isMyProfile: isMyProfile, userBool: $userBool, isFollowing: isFollowing)
-                        PostGridView()
+                            
+                        if(userGuid != nil){
+                            PostGridView(userGuid: userGuid!)
+                        }
+
                     }
                     
+                }
+                .onAppear(){
+                    if(userGuid != nil){
+                        postApi.GetPostUsers(guid: userGuid!)
+                    }
                 }
                 .padding(.top)
             }

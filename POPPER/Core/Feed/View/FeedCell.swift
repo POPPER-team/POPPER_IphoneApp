@@ -53,10 +53,10 @@ struct FeedCell: View {
                 .opacity(0.6)
             
             HStack{
-                if (mediaModel.postMedia != nil){
-                    Image(uiImage: UIImage(data: mediaModel.postMedia!)!)
-                        .resizable()
-                }
+                if mediaModel.postMedia != nil, let img = UIImage(data: mediaModel.postMedia!){
+                        Image(uiImage: img)
+                            .resizable()
+                    }
                 else{
                     Image(uiImage: UIImage(systemName: "carrot")!)
                         .resizable()
