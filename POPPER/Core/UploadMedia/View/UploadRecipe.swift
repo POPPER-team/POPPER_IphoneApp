@@ -12,10 +12,11 @@ struct UploadRecipe: View {
     @State private var Description: String = ""
     @State private var Ingredients: String = ""
     @State private var Steps: String = ""
-    @StateObject var PostApi = UploadApi()
+    @State private var media: UIImage?
+    @StateObject var postApi = UploadApi()
+    
     
     let currentStepIndex : Int
-    let postApi = api.uploadPost;
     var body: some View {
         ScrollView{
             VStack {
@@ -51,7 +52,7 @@ struct UploadRecipe: View {
                     .padding(.top)
                     .animation(.easeIn)
                     VStack(){
-                        UploadFile()
+                        UploadFile(uploadedMedia: $media)
                         PopperButton(buttonText: "PREVIEW AND UPLOAD", onClick: {
                             
                             let data:NewPostDto = NewPostDto(
@@ -62,7 +63,14 @@ struct UploadRecipe: View {
                             
                             print(data);
                             
-                            postApi.CreateNewPost(newPost: data)
+
+                                    postApi.CreateNewPost(newPost: data)
+                                    {
+                                        post in
+                                        postApi.UploadMedia(imageData: DataField(name:"File", data: (media?.scalePreservingAspectRatio(targetSize: CGSize(width: 100, height: 100)))!.jpegData(compressionQuality: 0.1)!, mimeType: "img/jpg"),guid: post!.guid )
+                                    }
+                                
+
                         })
                     }
                     .animation(.easeIn)

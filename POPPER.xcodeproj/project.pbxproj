@@ -51,7 +51,6 @@
 		30EBB10B2BAC7107009A9586 /* UserStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EBB10A2BAC7107009A9586 /* UserStatView.swift */; };
 		30F844052BAB6F2900F4D4CC /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F844042BAB6F2900F4D4CC /* FeedView.swift */; };
 		5C1F8E712C33FA25004E98B5 /* MediaPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F8E702C33FA25004E98B5 /* MediaPicker.swift */; };
-		5C1F8E752C345086004E98B5 /* PostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C1F8E742C345086004E98B5 /* PostApi.swift */; };
 		5C26583B2C1213A000DC9749 /* UploadApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C26583A2C1213A000DC9749 /* UploadApi.swift */; };
 		5C26583D2C12176500DC9749 /* NewPostDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C26583C2C12176500DC9749 /* NewPostDto.swift */; };
 		5C26583F2C12192000DC9749 /* PostDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C26583E2C12192000DC9749 /* PostDto.swift */; };
@@ -66,6 +65,7 @@
 		5CD2BA752C0751690031893D /* StepsField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2BA742C0751690031893D /* StepsField.swift */; };
 		5CD2BA772C075C9B0031893D /* UploadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2BA762C075C9B0031893D /* UploadFile.swift */; };
 		5CDBEF3D2C15A9E800A93A9C /* FormRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDBEF3C2C15A9E800A93A9C /* FormRequest.swift */; };
+		5CFF36C52C356B9400DF64C2 /* ScaleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFF36C42C356B9400DF64C2 /* ScaleExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,7 +113,6 @@
 		30EBB10A2BAC7107009A9586 /* UserStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatView.swift; sourceTree = "<group>"; };
 		30F844042BAB6F2900F4D4CC /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		5C1F8E702C33FA25004E98B5 /* MediaPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediaPicker.swift; path = POPPER/Core/Components/MediaPicker.swift; sourceTree = SOURCE_ROOT; };
-		5C1F8E742C345086004E98B5 /* PostApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostApi.swift; path = POPPER/API/PostApi.swift; sourceTree = SOURCE_ROOT; };
 		5C26583A2C1213A000DC9749 /* UploadApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadApi.swift; path = POPPER/API/UploadApi.swift; sourceTree = SOURCE_ROOT; };
 		5C26583C2C12176500DC9749 /* NewPostDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewPostDto.swift; path = POPPER/Dtos/NewPostDto.swift; sourceTree = SOURCE_ROOT; };
 		5C26583E2C12192000DC9749 /* PostDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostDto.swift; path = POPPER/Dtos/PostDto.swift; sourceTree = SOURCE_ROOT; };
@@ -128,6 +127,7 @@
 		5CD2BA742C0751690031893D /* StepsField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StepsField.swift; path = POPPER/Core/Components/StepsField.swift; sourceTree = SOURCE_ROOT; };
 		5CD2BA762C075C9B0031893D /* UploadFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadFile.swift; path = POPPER/Core/Components/UploadFile.swift; sourceTree = SOURCE_ROOT; };
 		5CDBEF3C2C15A9E800A93A9C /* FormRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FormRequest.swift; path = POPPER/API/ApiHelpers/FormRequest.swift; sourceTree = SOURCE_ROOT; };
+		5CFF36C42C356B9400DF64C2 /* ScaleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScaleExtension.swift; path = POPPER/API/ScaleExtension.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +239,7 @@
 			children = (
 				309EC1562C07651100B6B4B0 /* UserControl.swift */,
 				303C24D92C1DA97F0091D2B7 /* UserManager.swift */,
+				5CFF36C42C356B9400DF64C2 /* ScaleExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -386,7 +387,6 @@
 				30A53B8E2BDFDCBB00C32D95 /* UserAuthAPI.swift */,
 				309EC14F2C0747BD00B6B4B0 /* UserAPI.swift */,
 				5C26583A2C1213A000DC9749 /* UploadApi.swift */,
-				5C1F8E742C345086004E98B5 /* PostApi.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -531,7 +531,6 @@
 				30A53B822BDFBF4B00C32D95 /* UserDetailsDto.swift in Sources */,
 				30A53B882BDFC0C900C32D95 /* User.swift in Sources */,
 				301D8E492C0CA248001D3335 /* Comment.swift in Sources */,
-				5C1F8E752C345086004E98B5 /* PostApi.swift in Sources */,
 				3038E40D2BAC9558004A9720 /* FeedViewModel.swift in Sources */,
 				5C26583D2C12176500DC9749 /* NewPostDto.swift in Sources */,
 				3098F09C2BBECE6F004D4D07 /* PopperSecureField.swift in Sources */,
@@ -554,6 +553,7 @@
 				3041662C2BAB69D900AC1081 /* MainTabView.swift in Sources */,
 				309EC1502C0747BD00B6B4B0 /* UserAPI.swift in Sources */,
 				5C760CC22C1F5C1100A147F2 /* IngredientsField.swift in Sources */,
+				5CFF36C52C356B9400DF64C2 /* ScaleExtension.swift in Sources */,
 				30A53B772BDFBAE200C32D95 /* AuthenticationService.swift in Sources */,
 				30EBB1072BAC6DB3009A9586 /* PostGridView.swift in Sources */,
 				5CD2BA6B2C0732630031893D /* tap.swift in Sources */,

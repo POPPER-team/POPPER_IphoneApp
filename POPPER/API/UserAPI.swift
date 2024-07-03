@@ -26,7 +26,7 @@ class UserAPI:ObservableObject {
                 } catch {
                     print("Error decoding JSON: \(error)")
                 }
-
+                
             }
             else{
                 print(error)
@@ -48,7 +48,7 @@ class UserAPI:ObservableObject {
                 } catch {
                     print("Error decoding JSON: \(error)")
                 }
-
+                
             }
             else{
                 print(error)
@@ -64,12 +64,12 @@ class UserAPI:ObservableObject {
             if let data = data {
                 do {
                     DispatchQueue.main.async {
-                            self.profilePicure = data
+                        self.profilePicure = data
                     }
                 } catch {
                     print("Error decoding JSON: \(error)")
                 }
-
+                
             }
             else{
                 print(error)
@@ -159,9 +159,6 @@ class UserAPI:ObservableObject {
                 }
 
             }
-            else{
-                print(error)
-            }
-        }
+
     }
 }
