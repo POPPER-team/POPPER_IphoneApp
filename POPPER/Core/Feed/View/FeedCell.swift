@@ -14,18 +14,18 @@ struct FeedCell: View {
     var player: AVPlayer
     @State private var isShowingComments = false
     @State private var isSharing = false
+    private var user: UserDetailsDto?
     @StateObject private var viewModel = UserViewModel()
-    @State private var likes: Int
-    @State private var isLiked = false
+    @State private var isLiked: Bool
     @State private var saves: Int
     @State private var isSaved = false
     @StateObject var userModel = UserAPI()
     @StateObject var mediaModel = PostApi()
-    init (post: PostDto, player: AVPlayer){
+    init (post: PostDto, player: AVPlayer, isLiked: Bool = false){
         self.post = post
-        likes = post.likes
         saves = post.savedCount
         self.player = player
+        self.isLiked = isLiked
     }
 
 
@@ -96,12 +96,14 @@ struct FeedCell: View {
                     
                     VStack(spacing: 28) {
                             Button(action: {
-                                    isLiked.toggle()
-                                    if isLiked {
-                                        likes+=1
-                                    } else {
-                                        likes-=1
-                                    }
+                                userModel.likePost(UserGuid: user?.guid ?? "")
+                                isLiked.toggle()
+                                if (isLiked == true){
+                                    userModel.likes+=1
+                                }
+                                else{
+                                    userModel.likes-=1
+                                }
                                 }) {
                                     VStack {
                                         Image(systemName: isLiked ? "heart.fill" : "heart.fill")
@@ -109,7 +111,7 @@ struct FeedCell: View {
                                             .frame(width: 28, height: 28)
                                             .foregroundStyle(isLiked ? .red : .black)
                                         
-                                        Text("\(post.likes)")
+                                        Text("\(userModel.likes)")
                                             .font(.caption)
                                             .foregroundStyle(.black)
                                             .bold()

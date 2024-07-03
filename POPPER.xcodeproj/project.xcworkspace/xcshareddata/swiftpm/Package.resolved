@@ -1,0 +1,15 @@
+{
+  "originHash" : "db28a833c8e7d820b144bbb1a708e27c4bd70c475a3ac611131e5a67b5997fa6",
+  "pins" : [
+    {
+      "identity" : "loadingbutton",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Changemin/LoadingButton",
+      "state" : {
+        "revision" : "5045668df822a04c248a9b40aca888a4d37f275a",
+        "version" : "1.1.2"
+      }
+    }
+  ],
+  "version" : 3
+}
