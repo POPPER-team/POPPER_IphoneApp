@@ -91,7 +91,7 @@ class UserAPI:ObservableObject {
                 } catch {
                     print("Error decoding JSON: \(error)")
                 }
-
+                
             }
             else{
                 print(error)
@@ -113,7 +113,7 @@ class UserAPI:ObservableObject {
                 } catch {
                     print("Error decoding JSON: \(error)")
                 }
-
+                
             }
             else{
                 print(error)
@@ -135,7 +135,7 @@ class UserAPI:ObservableObject {
                 } catch {
                     print("Error decoding JSON: \(error)")
                 }
-
+                
             }
             else{
                 print(error)
@@ -157,8 +157,20 @@ class UserAPI:ObservableObject {
                 } catch {
                     print("Error decoding JSON: \(error)")
                 }
-
+                
             }
-
+            
+        }
     }
-}
+    func uploadProfileImage(imageData: DataField) {
+        let urlPath = "/UserDetails/UploadProfilePicture";
+        conn.putRequest(path: urlPath, field:imageData){
+            data, response, error in
+            if let data = data {
+                do {
+                    print("success");
+                    
+                }
+            }
+        }
+    }}
