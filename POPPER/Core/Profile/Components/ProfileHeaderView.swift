@@ -13,13 +13,15 @@ struct ProfileHeaderView: View {
     @StateObject var userApi = UserAPI();
     @StateObject var userControl = UserControl()
     public let isMyProfile: Bool;
-    @Binding var userBool: Bool
-
-
+    @Binding var userBool: Bool;
+    @State private var isFollowing = false
+    
+    
+    
     init(user: UserDetailsDto?, isMyProfile: Bool = false, userBool: Binding<Bool>? = .constant(false)){
         self.user = user as UserDetailsDto?
-    self.isMyProfile = isMyProfile
-    self._userBool = userBool ?? .constant(false)
+        self.isMyProfile = isMyProfile
+        self._userBool = userBool ?? .constant(false)
         
     }
     
@@ -37,7 +39,7 @@ struct ProfileHeaderView: View {
                 else{
                     Image(systemName: "person.circle.fill")
                         .resizable()
-                        .frame(width: 48, height: 48)
+                        .frame(width: 72, height: 72)
                         .foregroundStyle(Color(.systemGray))
                 }
                 
@@ -66,13 +68,22 @@ struct ProfileHeaderView: View {
             }
             else
             {
-                PopperButton(buttonText: "Follow", onClick: {
-                    print("Followed")
-                })
+                
+                if isFollowing {
+                    PopperButton(buttonText: "Unfollow", onClick: {
+                        isFollowing.toggle()
+                    }).background(Color.red)
+                        .cornerRadius(20)
+                }
+                else{
+                    PopperButton(buttonText: "Follow", onClick: {
+                        isFollowing.toggle()
+                    })
+                }
             }
-            
-            Divider()
         }
+        
+        Divider()
     }
 }
 
