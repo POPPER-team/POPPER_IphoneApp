@@ -10,50 +10,91 @@ import AVKit
 
 struct FeedCell: View {
     var gen_rnd = Int.random(in: 1..<1000)
-    let post: Post
+    let post: PostDto
     var player: AVPlayer
     @State private var isShowingComments = false
     @State private var isSharing = false
     @StateObject private var viewModel = UserViewModel()
-    @State private var likes: Int = Int.random(in: 1..<1000)
+    @State private var likes: Int
     @State private var isLiked = false
-    @State private var saves: Int = Int.random(in: 1..<50)
+    @State private var saves: Int
     @State private var isSaved = false
-    
-    init (post: Post, player: AVPlayer){
+    @StateObject var userModel = UserAPI()
+    @StateObject var mediaModel = PostApi()
+    init (post: PostDto, player: AVPlayer){
         self.post = post
+        likes = post.likes
+        saves = post.savedCount
         self.player = player
     }
+
+
+    
     var body: some View {
         ZStack {
-            CustomVideoPlayer(player: player)
-                .containerRelativeFrame([.horizontal, .vertical])
+  //          if(post.mediaGuid != nil){
+  //              CustomVideoPlayer(player: player)
+  //                  .containerRelativeFrame([.horizontal, .vertical])
+  //          }
+  //          else {
+  //              HStack{
+  //                  Text(post.ingredients!.map{
+  //                      $0.name
+  //                  }
+  //                      .joined(separator: "/n"))
+  //                  .foregroundStyle(.white)
+  //              }
+  //          }
+  
+            Rectangle()
+                .fill(.red)
+                .frame(minWidth: 400, maxWidth: .infinity, minHeight: 850, maxHeight: .infinity, alignment: .center)
+                .clipped()
+                .opacity(0.6)
+            
+            HStack{
+                if (mediaModel.postMedia != nil){
+                    Image(uiImage: UIImage(data: mediaModel.postMedia!)!)
+                        .resizable()
+                }
+                else{
+                    Image(uiImage: UIImage(systemName: "carrot")!)
+                        .resizable()
+                        .frame(width: 300, height: 340)
+                }
+            }
             
             VStack{
                 Spacer()
                 
                 HStack(alignment: .bottom) {
                     VStack(alignment: .leading) {
-                        Text("\("user" + gen_rnd.formatted())")
+                        Text(userModel.user?.username ?? "\("user" + gen_rnd.formatted())")
                         .fontWeight(.semibold)
+                        .foregroundStyle(.black)
+                        Text(post.title)
+                            .foregroundStyle(.black)
+                            .onAppear(){
+                                userModel.GetUserDetails(UserGuid: post.userGuid) 
+                                if(post.mediaGuid != nil){
+                                    mediaModel.GetMedia(guid: post.mediaGuid!);
+                                }
+                                
+                            }
+                        Text(post.description ?? "")
+                            .foregroundStyle(.black)
+                        Text(post.ingredients!.map{
+                            $0.name
+                        }
+                            .joined(separator: "/n"))
+                        .foregroundStyle(.black)
+
                     }
-                    .foregroundStyle(.white)
                     .font(.subheadline)
                     
                     Spacer()
                     
                     VStack(spacing: 28) {
-                        
-                        Circle()
-                            .frame(width: 48, height: 48)
-                            .foregroundStyle(.gray)
-                            .overlay(
-                                Image(systemName: "person.circle.fill")
-                                    .resizable()
-                                    .frame(width: 48, height: 48)
-                                    .clipShape(Circle())
-                                    .foregroundStyle(.white)
-                            )
                             Button(action: {
                                     isLiked.toggle()
                                     if isLiked {
@@ -66,11 +107,11 @@ struct FeedCell: View {
                                         Image(systemName: isLiked ? "heart.fill" : "heart.fill")
                                             .resizable()
                                             .frame(width: 28, height: 28)
-                                            .foregroundStyle(isLiked ? .red : .white)
+                                            .foregroundStyle(isLiked ? .red : .black)
                                         
-                                        Text("\(likes)")
+                                        Text("\(post.likes)")
                                             .font(.caption)
-                                            .foregroundStyle(.white)
+                                            .foregroundStyle(.black)
                                             .bold()
                                     }
                                 }
@@ -82,11 +123,11 @@ struct FeedCell: View {
                                 Image(systemName: "ellipsis.bubble.fill")
                                     .resizable()
                                     .frame(width: 28, height: 28)
-                                    .foregroundStyle(.white)
+                                    .foregroundStyle(.black)
                                 
                                 Text(Int.random(in: 1..<30).formatted())
                                     .font(.caption)
-                                    .foregroundStyle(.white)
+                                    .foregroundStyle(.black)
                                     .bold()
                             }
                         }.sheet(isPresented: $isShowingComments) {
@@ -104,11 +145,11 @@ struct FeedCell: View {
                                         Image(systemName: isSaved ? "bookmark.fill" : "bookmark.fill")
                                             .resizable()
                                             .frame(width: 28, height: 28)
-                                            .foregroundStyle(isSaved ? .yellow : .white)
+                                            .foregroundStyle(isSaved ? .yellow : .black)
                                         
                                         Text("\(saves)")
                                             .font(.caption)
-                                            .foregroundStyle(.white)
+                                            .foregroundStyle(.black)
                                             .bold()
                                     }
                                 }
@@ -153,5 +194,5 @@ struct FeedCell: View {
 }
 
 #Preview {
-    FeedCell(post: Post(id: NSUUID().uuidString, videoUrl: ""), player: AVPlayer())
+    FeedCell(post : PostDto(guid: NSUUID().uuidString, title: "NASLOV", description: "bok", mediaGuid: NSUUID().uuidString, duration: "", userGuid: NSUUID().uuidString, likes: 20 , savedCount: 30, viewCount:100, comments: nil, ingredients: [IngridientDto(guid: NSUUID().uuidString, name: "ingredient", amount: "20g")], steps: nil), player: AVPlayer())
 }

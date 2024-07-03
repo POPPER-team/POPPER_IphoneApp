@@ -21,6 +21,9 @@ class FeedViewModel: ObservableObject {
     }
     
     func fetchPosts() {
+        
+        
+        
         self.posts = [
             .init(id: NSUUID().uuidString, videoUrl: videoUrls[0]),
             .init(id: NSUUID().uuidString, videoUrl: videoUrls[1]),

@@ -3,6 +3,7 @@
 //  POPPER
 //
 //  Created by Lorena Kovačić on 06.06.2024..
+//    "guid": "54a7adc1-293b-4685-a83e-8dcb858e7a68",
 //
 
 import Foundation
@@ -16,9 +17,9 @@ struct PostDto: Codable {
     let likes: Int
     let savedCount: Int
     let viewCount: Int
-    let comments: [CommentDto]
-    let ingredients: [IngridientDto]
-    let steps: [StepDto]
+    let comments: [CommentDto]?
+    let ingredients: [IngridientDto]?
+    let steps: [StepDto]?
 }
 
 struct CommentDto: Codable {
