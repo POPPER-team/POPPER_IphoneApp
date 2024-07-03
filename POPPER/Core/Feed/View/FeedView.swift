@@ -12,46 +12,66 @@ struct FeedView: View {
     @StateObject var viewModel = FeedViewModel()
     @State private var scrollPosition: String?
     @State private var player = AVPlayer()
+    @StateObject var postModel = PostApi()
     
     var body: some View {
+        
         ScrollView{
-            LazyVStack(spacing: 0){
-                ForEach(viewModel.posts) {
-                    post in
-                    FeedCell(post: post, player: player)
-                        .id(post.id)
-                        .onAppear {
-                            playInitialVideoIfNecessary()
+            if(postModel.posts == nil){
+            VStack (alignment : .center, spacing: 300){
+                    Spacer()
+                    Text("Loading...")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .frame(alignment: .leading)
+                        .onAppear{
+                            postModel.GetPosts()
                         }
                 }
             }
-            .scrollTargetLayout()
-        }
-        .onAppear{player.play()}
-        .scrollPosition(id: $scrollPosition)
-        .scrollTargetBehavior(.paging)
-        .ignoresSafeArea()
-        .onChange(of: scrollPosition){
-            oldValue , newValue in playVideoOnChangeOfScrollPosition(postId: newValue)
-        }
+            else{
+                LazyVStack(spacing: 0){
+                    ForEach(postModel.posts.unsafelyUnwrapped, id: \.guid) {
+                        post in
+                        FeedCell(post: post, player: player)
+                        .id(post.guid)
+                        .onAppear {
+                            playInitialVideoIfNecessary()
+                            if(post.mediaGuid != nil){
+                                //postModel.GetMedia(guid: post.mediaGuid!)
+                            }
+                        }
+                    }
+                }
+                .scrollTargetLayout()
+            }
+            
+        } .onAppear{player.play()}
+            .scrollPosition(id: $scrollPosition)
+            .scrollTargetBehavior(.paging)
+            .ignoresSafeArea()
+            .onChange(of: scrollPosition){
+                oldValue , newValue in playVideoOnChangeOfScrollPosition(postId: newValue)
+            }
     }
-    
-    func playInitialVideoIfNecessary(){
-        guard
-            scrollPosition == nil,
-            let post = viewModel.posts.first,
-            player.currentItem == nil else { return }
         
-        let item = AVPlayerItem(url: URL(string: post.videoUrl)!)
-        player.replaceCurrentItem(with: item)
-    }
-    
-    func playVideoOnChangeOfScrollPosition(postId: String?){
-        guard let currentPost = viewModel.posts.first(where: { $0.id == postId}) else { return }
+        func playInitialVideoIfNecessary(){
+            guard
+                scrollPosition == nil,
+                let post = viewModel.posts.first,
+                player.currentItem == nil else { return }
+            
+            let item = AVPlayerItem(url: URL(string: post.videoUrl)!)
+            player.replaceCurrentItem(with: item)
+        }
         
-        player.replaceCurrentItem(with: nil)
-        let playerItem = AVPlayerItem(url:URL(string: currentPost.videoUrl)!)
-        player.replaceCurrentItem(with: playerItem)
+        func playVideoOnChangeOfScrollPosition(postId: String?){
+            guard let currentPost = viewModel.posts.first(where: { $0.id == postId}) else { return }
+            
+            player.replaceCurrentItem(with: nil)
+            let playerItem = AVPlayerItem(url:URL(string: currentPost.videoUrl)!)
+            player.replaceCurrentItem(with: playerItem)
+        
     }
 }
 

@@ -66,6 +66,7 @@
 		5CD2BA772C075C9B0031893D /* UploadFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD2BA762C075C9B0031893D /* UploadFile.swift */; };
 		5CDBEF3D2C15A9E800A93A9C /* FormRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDBEF3C2C15A9E800A93A9C /* FormRequest.swift */; };
 		5CFF36C52C356B9400DF64C2 /* ScaleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFF36C42C356B9400DF64C2 /* ScaleExtension.swift */; };
+		5CFF36C72C35877900DF64C2 /* PostApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFF36C62C35877900DF64C2 /* PostApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +129,7 @@
 		5CD2BA762C075C9B0031893D /* UploadFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadFile.swift; path = POPPER/Core/Components/UploadFile.swift; sourceTree = SOURCE_ROOT; };
 		5CDBEF3C2C15A9E800A93A9C /* FormRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FormRequest.swift; path = POPPER/API/ApiHelpers/FormRequest.swift; sourceTree = SOURCE_ROOT; };
 		5CFF36C42C356B9400DF64C2 /* ScaleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScaleExtension.swift; path = POPPER/API/ScaleExtension.swift; sourceTree = SOURCE_ROOT; };
+		5CFF36C62C35877900DF64C2 /* PostApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostApi.swift; path = POPPER/API/PostApi.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,6 +389,7 @@
 				30A53B8E2BDFDCBB00C32D95 /* UserAuthAPI.swift */,
 				309EC14F2C0747BD00B6B4B0 /* UserAPI.swift */,
 				5C26583A2C1213A000DC9749 /* UploadApi.swift */,
+				5CFF36C62C35877900DF64C2 /* PostApi.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				303C24D82C1DA7490091D2B7 /* SearchUser.swift in Sources */,
 				3098F09A2BBECD8F004D4D07 /* PopperInputField.swift in Sources */,
 				5CD2BA652C0722D40031893D /* UploadRecipe.swift in Sources */,
+				5CFF36C72C35877900DF64C2 /* PostApi.swift in Sources */,
 				3041662C2BAB69D900AC1081 /* MainTabView.swift in Sources */,
 				309EC1502C0747BD00B6B4B0 /* UserAPI.swift in Sources */,
 				5C760CC22C1F5C1100A147F2 /* IngredientsField.swift in Sources */,
