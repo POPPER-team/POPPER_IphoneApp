@@ -32,22 +32,41 @@
 
 import Foundation
 class UploadApi :ObservableObject{
-    
-    func CreateNewPost(newPost:NewPostDto){
+    func CreateNewPost(newPost:NewPostDto, upload:@escaping(PostDto?) ->()){
         let urlPath = "/Post/CreatePost";
-        conn.postRequest(path: urlPath, body: newPost){
-            data, response, error in
-            if let data = data{
-                
+
+            conn.postRequest(path: urlPath, body: newPost){
+                data, response, error in
+                if let data = data{
+                    if let post = try? JSONDecoder().decode(PostDto.self, from: data)
+                    {
+                        upload(post)
+                    }
+                    else{
+                        print ("Error decoding json")
+                    }
+                    
+                    
+                }
+                else{
+                    print (error)
+                }
             }
-            else{
-                print (error)
-            }
-        }
+            
     }
     
-    func UploadMedia(){
-        
+    func UploadMedia(imageData : DataField, guid: String){
+        let urlPath = "/Post/UploadPostMedia/\(guid)";
+        conn.putRequest(path: urlPath, field:imageData){
+            data, response, error in
+            if let data = data {
+                do {
+                    print(data);
+                }}
+            else{
+                print(error)
+            }
+        }
     }
     
     func GetPost(guid:String, PostExcape:@escaping(PostDto?) ->()){

@@ -26,7 +26,7 @@ class UserAPI:ObservableObject {
                 } catch {
                     print("Error decoding JSON: \(error)")
                 }
-
+                
             }
             else{
                 print(error)
@@ -48,7 +48,7 @@ class UserAPI:ObservableObject {
                 } catch {
                     print("Error decoding JSON: \(error)")
                 }
-
+                
             }
             else{
                 print(error)
@@ -64,16 +64,30 @@ class UserAPI:ObservableObject {
             if let data = data {
                 do {
                     DispatchQueue.main.async {
-                            self.profilePicure = data
+                        self.profilePicure = data
                     }
                 } catch {
                     print("Error decoding JSON: \(error)")
                 }
-
+                
             }
             else{
                 print(error)
             }
         }
     }
-}
+    
+    func uploadProfileImage(imageData: DataField) {
+        let urlPath = "/UserDetails/UploadProfilePicture";
+        
+        conn.putRequest(path: urlPath, field:imageData){
+            data, response, error in
+            if let data = data {
+                do {
+                    print("success");
+                }}
+            else{
+                print(error)
+            }
+        }
+    }}

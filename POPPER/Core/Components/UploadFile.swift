@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UploadFile: View {
-    @State private var uploadedMedia:Image?;
+    @Binding public var uploadedMedia:UIImage?;
     @State private var IsChoosingPicture = false;
     
     
@@ -33,7 +33,3 @@ struct UploadFile: View {
         }
     }
 }
-
-    #Preview {
-        UploadFile()
-    }

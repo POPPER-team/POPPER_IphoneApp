@@ -2,16 +2,16 @@ import SwiftUI
 
 struct Test: View {
     @State var isShowPicker: Bool = false
-    @State var image: Image? = Image("placeholder")
+    @State var image: UIImage?
 
     var body: some View {
         NavigationView {
             ZStack {
                 VStack {
-                    image?
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 320)
+                    Image(uiImage: image!)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 320)
                     Button(action: {
                         withAnimation {
                             self.isShowPicker.toggle()
@@ -37,14 +37,14 @@ struct PopperImagePicker: UIViewControllerRepresentable {
     @Environment(\.presentationMode)
     var presentationMode
 
-    @Binding var image: Image?
+    @Binding var image: UIImage?
 
     class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
         @Binding var presentationMode: PresentationMode
-        @Binding var image: Image?
+        @Binding var image: UIImage?
 
-        init(presentationMode: Binding<PresentationMode>, image: Binding<Image?>) {
+        init(presentationMode: Binding<PresentationMode>, image: Binding<UIImage?>) {
             _presentationMode = presentationMode
             _image = image
         }
@@ -52,7 +52,7 @@ struct PopperImagePicker: UIViewControllerRepresentable {
         func imagePickerController(_ picker: UIImagePickerController,
                                    didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             let uiImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-            image = Image(uiImage: uiImage)
+            image = uiImage
             presentationMode.dismiss()
 
         }

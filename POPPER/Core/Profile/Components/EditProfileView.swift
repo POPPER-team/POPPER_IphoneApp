@@ -9,8 +9,7 @@ import SwiftUI
 
 struct EditProfileView: View {
     
-    @State private var profilePicture:Image?;
-    
+    @State private var profilePicture:UIImage?;
     @Environment(\.presentationMode) var presentationMode
     
     @State private var username:String
@@ -23,6 +22,7 @@ struct EditProfileView: View {
     @State private var isEditingProfilePicture = false
     @State private var IsChoosingPicture = false
     @Binding var userBool: Bool
+    @ObservedObject var userApi = UserAPI()
 
     init(user: UserDetailsDto, userBool: Binding<Bool>){
         self.username = user.username
@@ -65,10 +65,17 @@ struct EditProfileView: View {
 
                     }
                     else {
-                        profilePicture!
+                        Image(uiImage: profilePicture!)
                             .resizable()
                             .frame(width: 100, height: 100)
                             .foregroundColor(Color(.systemGray))
+                            .cornerRadius(50)
+                            .onAppear()
+                            {
+                                
+                                
+                                userApi.uploadProfileImage(imageData: DataField(name:"File", data: profilePicture!.scalePreservingAspectRatio(targetSize: CGSize(width: 100,height: 100)) .jpegData(compressionQuality:0.01)!, mimeType:"img/jpg"))
+                            }
                     }
             
             PopperButton(buttonText: "Edit picture", onClick: {
@@ -133,7 +140,7 @@ struct EditProfileView: View {
                         
                 }.sheet(isPresented: $IsChoosingPicture){
                     PopperImagePicker(image:self.$profilePicture);
-        }
+                }
     }
 }
 
