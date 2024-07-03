@@ -173,4 +173,22 @@ class UserAPI:ObservableObject {
                 }
             }
         }
-    }}
+    }
+    func changePassword(oldPassword: String, newPassword: String)
+    {
+        let urlPath = "/UserAuthentication/ChangePassword";
+        
+        var url = URLComponents();
+        url.queryItems = [URLQueryItem(name: "oldPassword", value: oldPassword), URLQueryItem(name: "newPassword", value: newPassword)]
+        url.path = urlPath
+        
+        conn.postRequest(path: url.string!, body: nil) {
+            data, response, error in
+            if let data = data {
+                do {
+                    print("success");
+                }
+            }
+        }
+    }
+}
